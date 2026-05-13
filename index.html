@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetaCode｜官网产品介绍 v6.4（科技感 · 业务结果三维度配图版）</title>
+    <meta
+      name="description"
+      content="MetaCode 官网产品介绍：聚焦业务结果、工程能力、行业案例与团队落地路径。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+QingKe+HuangYou&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #060b16;
+        --bg-2: #0a1224;
+        --panel: rgba(12, 20, 40, 0.82);
+        --line: rgba(86, 149, 255, 0.28);
+        --ink: #e9f2ff;
+        --ink-soft: #9bb4da;
+        --brand: #5bd5ff;
+        --ok: #43e7b0;
+        --radius: 16px;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        color: var(--ink);
+        font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", sans-serif;
+        background:
+          radial-gradient(circle at 14% 8%, rgba(88, 142, 255, 0.26), transparent 35%),
+          radial-gradient(circle at 92% 18%, rgba(67, 231, 176, 0.14), transparent 30%),
+          linear-gradient(180deg, var(--bg), var(--bg-2));
+        line-height: 1.72;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(94, 149, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(94, 149, 255, 0.06) 1px, transparent 1px);
+        background-size: 26px 26px;
+        mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
+      }
+      a { color: var(--brand); text-decoration: none; }
+      .frame { max-width: 1180px; margin: 0 auto; padding: 20px 18px 80px; position: relative; z-index: 1; }
+      .topbar {
+        position: sticky; top: 10px; z-index: 20;
+        border: 1px solid var(--line); border-radius: 999px;
+        background: rgba(8, 14, 30, 0.78); backdrop-filter: blur(10px);
+        padding: 8px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+        box-shadow: 0 0 0 1px rgba(91, 213, 255, 0.08), 0 20px 34px rgba(5, 9, 22, 0.5);
+      }
+      .brand { font-family: "ZCOOL QingKe HuangYou", sans-serif; font-size: 1.3rem; color: #d7ecff; }
+      .nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+      .nav a { color: var(--ink-soft); font-size: 0.81rem; padding: 4px 8px; border-radius: 999px; border: 1px solid transparent; }
+      .nav a:hover { color: #ddf4ff; border-color: rgba(91, 213, 255, 0.35); background: rgba(17, 31, 58, 0.66); }
+
+      .hero {
+        margin-top: 20px; border: 1px solid rgba(91, 213, 255, 0.36); border-radius: 22px;
+        background: linear-gradient(150deg, rgba(17, 39, 80, 0.95), rgba(8, 20, 44, 0.96));
+        padding: 36px 30px 30px; position: relative; overflow: hidden;
+        box-shadow: 0 0 60px rgba(49, 107, 255, 0.22), inset 0 0 20px rgba(118, 213, 255, 0.08);
+      }
+      .hero::after {
+        content: "META TASK · METACODE · v0.1.8";
+        position: absolute; right: 22px; top: 18px;
+        font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: #8ec9ff;
+      }
+      h1 { margin: 0 0 10px; font-family: "ZCOOL QingKe HuangYou", sans-serif; font-size: clamp(2.2rem, 4.3vw, 3.1rem); letter-spacing: 1px; }
+      .hero p { margin: 0; max-width: 900px; color: #cbe5ff; }
+      .chips { margin-top: 16px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+      .chip { border: 1px solid rgba(91, 213, 255, 0.35); border-radius: 12px; padding: 10px 12px; background: rgba(9, 18, 36, 0.72); font-size: 0.86rem; }
+
+      .section {
+        margin-top: 16px; background: var(--panel); border: 1px solid var(--line);
+        border-radius: var(--radius); padding: 22px;
+        box-shadow: inset 0 1px 0 rgba(160, 218, 255, 0.08), 0 14px 28px rgba(0, 0, 0, 0.24);
+      }
+      h2 { margin: 0 0 12px; font-size: 1.28rem; color: #d5edff; }
+      h3 { margin: 12px 0 8px; font-size: 1.03rem; color: #c8e6ff; }
+      p { margin: 0; }
+      .hint { color: var(--ink-soft); }
+      .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+      .card { border: 1px solid rgba(91, 213, 255, 0.26); background: rgba(8, 14, 30, 0.72); border-radius: 14px; padding: 14px; }
+      .card strong { color: #dff4ff; }
+      ul { margin: 8px 0 0 18px; padding: 0; }
+      li { margin: 4px 0; }
+
+      table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.9rem; }
+      th, td { border-bottom: 1px solid rgba(103, 152, 219, 0.32); padding: 10px 8px; text-align: left; vertical-align: top; }
+      th { color: #c4e5ff; background: rgba(17, 35, 68, 0.72); }
+
+      pre {
+        margin: 8px 0 0; background: #030812; color: #cce7ff; border: 1px solid rgba(91, 213, 255, 0.2);
+        border-radius: 10px; padding: 12px; overflow-x: auto; font-size: 0.86rem;
+      }
+      code { font-family: "JetBrains Mono", Menlo, Consolas, monospace; }
+
+      .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .case { border: 1px solid rgba(91, 213, 255, 0.28); border-radius: 12px; background: rgba(8, 15, 30, 0.78); overflow: hidden; }
+      .case img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; }
+      .case h4 { margin: 0; padding: 10px 12px; font-size: 0.98rem; color: #dff3ff; background: rgba(19, 36, 69, 0.75); }
+      .case .body { padding: 12px; font-size: 0.9rem; }
+      .metrics { margin-top: 8px; padding: 8px 10px; border-radius: 10px; background: rgba(9, 29, 39, 0.56); border: 1px solid rgba(67, 231, 176, 0.22); }
+      .metrics li { color: #ccf8ec; }
+
+      details { border: 1px solid rgba(91, 213, 255, 0.28); border-radius: 12px; padding: 10px 12px; background: rgba(8, 15, 30, 0.75); }
+      details + details { margin-top: 8px; }
+      summary { cursor: pointer; font-weight: 700; color: #c7e6ff; }
+
+      .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(91,213,255,.35); font-size: .74rem; color: #a8ddff; margin-left: 6px; }
+      footer { text-align: center; color: #83a3cc; font-size: 0.84rem; margin-top: 20px; }
+
+      @media (max-width: 1020px) {
+        .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-3, .grid-2, .case-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 640px) {
+        .topbar { position: static; border-radius: 14px; }
+        .hero { padding: 26px 20px; }
+        .chips { grid-template-columns: 1fr; }
+        .section { padding: 16px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="topbar">
+        <div class="brand">MetaCode</div>
+        <nav class="nav" aria-label="页面导航">
+          <a href="#overview">产品概览</a>
+          <a href="#decision">业务结果</a>
+          <a href="#capability">核心能力</a>
+          <a href="#cases">行业案例</a>
+          <a href="#rollout">实施路径</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+
+      <header class="hero" id="overview">
+        <h1>MetaCode</h1>
+        <p>
+          面向开发者与技术团队的 AI 命令行编码 Agent。<br />
+          以终端原生体验为核心，把代码生成、修改、审查、脚本与工具链协同整合到同一条工程工作流，
+          支撑从个人提效到团队治理的持续演进。
+        </p>
+        <div class="chips">
+          <div class="chip"><strong>安装快</strong><br />一条命令即可启动</div>
+          <div class="chip"><strong>终端原生</strong><br />贴近真实研发习惯</div>
+          <div class="chip"><strong>可扩展</strong><br />MCP / Skills / 插件生态</div>
+          <div class="chip"><strong>可治理</strong><br />支持团队规范化落地</div>
+        </div>
+        <p class="hint" style="margin-top: 10px;">适用于高频迭代团队、复杂系统协作场景，以及对研发过程可追溯性有明确要求的组织。</p>
+      </header>
+
+      <section class="section" id="decision">
+        <h2>你将获得的业务结果</h2>
+        <div class="grid-3">
+          <div class="card">
+            <img src="case_images_v4/outcome_efficiency.png" alt="MetaCode提升研发交付效率的可视化示意图" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; border-radius:10px; margin-bottom:10px;" loading="lazy" />
+            <strong>效率提升</strong>
+            <ul>
+              <li>缩短需求到提测链路时间</li>
+              <li>减少高并发研发阶段的PR积压</li>
+              <li>提升跨服务改造任务推进速度</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="case_images_v4/outcome_quality_stability.png" alt="MetaCode提升代码质量与系统稳定性的可视化示意图" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; border-radius:10px; margin-bottom:10px;" loading="lazy" />
+            <strong>质量与稳定性</strong>
+            <ul>
+              <li>补齐异常分支与高风险回归覆盖</li>
+              <li>降低漏改返工与联调延期概率</li>
+              <li>缩短故障定位与恢复闭环时间</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="case_images_v4/outcome_governance.png" alt="MetaCode支撑团队治理与研发规范化的可视化示意图" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; border-radius:10px; margin-bottom:10px;" loading="lazy" />
+            <strong>组织治理能力</strong>
+            <ul>
+              <li>用Skills沉淀可复用流程资产</li>
+              <li>通过 MCP 连接既有工程与数据系统</li>
+              <li>支持团队级统一指标复盘机制</li>
+            </ul>
+          </div>
+        </div>
+        <p class="hint" style="margin-top: 10px;">
+          在大多数团队试点中，最先可见的变化通常发生在交付周期、返工频次与线上稳定性。为便于客观评估，建议统一跟踪 Lead Time、PR Cycle Time、缺陷逃逸率、回滚率、关键路径覆盖率、MTTR，并结合单需求改造人天进行阶段复盘。
+        </p>
+      </section>
+
+      <section class="section" id="capability">
+        <h2>MetaCode 如何支撑研发全流程</h2>
+        <div class="grid-2">
+          <article class="card">
+            <h3>代码与工程操作</h3>
+            <ul>
+              <li>代码生成、跨文件重构、代码解释、静态审查建议</li>
+              <li>Shell 命令执行、Git 协同操作、自动化脚本生成与优化</li>
+              <li>支持复杂任务的多轮规划与执行推进</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>扩展与协作</h3>
+            <ul>
+              <li>通过 MCP 协议接入数据库、API、文档系统与内部平台能力</li>
+              <li>MCP Server 模式可供其他 Agent 或自动化流程调用</li>
+              <li>Skills 体系沉淀团队可复用工作流</li>
+            </ul>
+          </article>
+        </div>
+
+        <h3>快速上手</h3>
+        <pre><code># macOS / Linux
+curl -fsSL https://metacode.pages.dev/install.sh | sh
+
+# Windows PowerShell
+irm https://metacode.pages.dev/install.ps1 | iex
+
+metacode --version</code></pre>
+
+        <h3>技术规格</h3>
+        <table>
+          <thead><tr><th>项目</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>支持系统</td><td>Linux / macOS / Windows</td></tr>
+            <tr><td>建议环境</td><td>macOS 12+ / Ubuntu 20.04+ / Windows 11 (WSL2)</td></tr>
+            <tr><td>典型内存占用</td><td>约 270 MB</td></tr>
+            <tr><td>典型输出速度</td><td>约 120 token/s</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" id="cases">
+        <h2>六个真实业务场景的落地结果（脱敏） <span class="tag">金融 ×2</span><span class="tag">电商 ×2</span><span class="tag">制造 ×2</span></h2>
+        <p class="hint">为保护客户信息，以下案例已做行业与数据脱敏处理。指标口径与实施方法可在你的团队试点阶段复现验证。</p>
+
+        <div class="case-grid" style="margin-top: 12px;">
+          <article class="case">
+            <img src="case_images_v4/case01_finance_risk_audit.png" alt="金融风控规则变更与审计追溯场景示意图" />
+            <h4>案例1｜金融客户：风控规则变更与审计追溯</h4>
+            <div class="body">
+              痛点：风控规则同时分布在规则引擎与多个服务代码中，需求变更后常出现影响面识别不全、审计材料补件频繁的问题。<br /><strong>MetaCode 如何介入：</strong>自动解析规则变更语义，定位受影响服务与配置节点，生成“需求-改动文件-测试用例”映射草稿，并补齐边界条件测试建议。<br /><strong>核心价值：</strong>把“靠个人经验排查”变为“结构化影响分析”，显著降低漏改与返工风险，同时提高审计追溯准备效率。<br /><strong>适用前提/边界条件：</strong>适用于规则需求具备结构化输入（字段、阈值、适用条件）的团队；若关键规则长期依赖口头约定且缺少历史沉淀，收益会受限。
+              <ul class="metrics">
+                <li>Lead Time：9.6天 → 7.2天（-25%）</li>
+                <li>返工频次：5.0次/周 → 3.2次/周（-36%）</li>
+                <li>审计补件次数：10次/月 → 7次/月（-30%）</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case">
+            <img src="case_images_v4/case02_finance_regression.png" alt="金融核心交易链路回归提效场景示意图" />
+            <h4>案例2｜金融客户：核心交易链路回归提效</h4>
+            <div class="body">
+              痛点：核心交易链路发布窗口短、手工回归占比高，异常分支（超时、重试、幂等冲突）覆盖不足，导致线上偶发高影响缺陷。<br /><strong>MetaCode 如何介入：</strong>结合历史缺陷与近期改动，自动生成高风险回归集，优先覆盖异常分支，并在发布前输出风险改动清单。<br /><strong>核心价值：</strong>将回归资源集中到高风险路径，在不增加团队负担的前提下缩短回归耗时并提升关键路径覆盖率。<br /><strong>适用前提/边界条件：</strong>适用于具备历史缺陷与发布记录的系统；若测试环境与生产环境差异较大，回归收益会被部分抵消。
+              <ul class="metrics">
+                <li>回归耗时：15.0小时 → 9.8小时（-35%）</li>
+                <li>关键路径覆盖率：69% → 85%（+16pp）</li>
+                <li>严重缺陷：5起/季度 → 3起/季度</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case">
+            <img src="case_images_v4/case03_ecommerce_campaign.png" alt="电商大促前密集需求迭代场景示意图" />
+            <h4>案例3｜电商客户：大促前密集需求迭代</h4>
+            <div class="body">
+              痛点：大促前需求并发激增，PR积压与跨团队沟通成本同步上升，评审效率下降并放大回归风险。<br /><strong>MetaCode 如何介入：</strong>针对模板化活动规则变更生成改造建议，自动生成结构化 PR 摘要与风险提示，并给出回归优先级建议。<br /><strong>核心价值：</strong>减少评审沟通损耗，提升并发阶段代码流转速度，帮助团队在高峰期稳定提升交付吞吐。<br /><strong>适用前提/边界条件：</strong>适用于模板化或规则化变更占比较高的业务；若需求主要为全新复杂能力开发，短期提效幅度通常低于模板化场景。
+              <ul class="metrics">
+                <li>PR Cycle Time：30.5小时 → 21.3小时（-30%）</li>
+                <li>人均交付故事点：+22%</li>
+                <li>回滚率：4.0% → 3.8%</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case">
+            <img src="case_images_v4/case04_ecommerce_contracts.png" alt="电商接口契约变更联调治理场景示意图" />
+            <h4>案例4｜电商客户：接口契约变更联调治理</h4>
+            <div class="body">
+              痛点：接口版本频繁变更时，上下游系统对变更感知滞后，联调轮次高、上线延期和返工成本增加。<br /><strong>MetaCode 如何介入：</strong>自动识别字段增删与语义变更的上下游影响，生成契约测试建议与联调检查单，标记高风险破坏性改动。<br /><strong>核心价值：</strong>把“联调后暴露问题”前移到“开发阶段可预警”，降低联调反复与延期概率，提升跨团队协作确定性。<br /><strong>适用前提/边界条件：</strong>适用于接口契约可结构化提取（OpenAPI/IDL/可解析文档）的系统；若上下游未执行契约测试流程，效果会明显下降。
+              <ul class="metrics">
+                <li>联调轮次：4.4轮 → 3.0轮（-32%）</li>
+                <li>缺陷前置发现率：54% → 73%（+19pp）</li>
+                <li>上线延期：5次/月 → 3次/月（-40%）</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case">
+            <img src="case_images_v4/case05_manufacturing_legacy.png" alt="制造业遗留系统增量改造场景示意图" />
+            <h4>案例5｜制造客户：遗留系统增量改造</h4>
+            <div class="body">
+              痛点：遗留系统中业务规则分散在旧代码与脚本中，改造常牵一发而动全身，需求估算偏差与连带缺陷并发出现。<br /><strong>MetaCode 如何介入：</strong>自动梳理调用链与依赖关系，识别低风险切入点，给出“最小改动路径 + 回滚检查点 + 验证脚本建议”。<br /><strong>核心价值：</strong>把大范围不确定改造拆解为可控增量步骤，降低历史系统改造的人天消耗与回滚风险。<br /><strong>适用前提/边界条件：</strong>适用于可访问核心仓库与近3个月变更记录的系统；若关键模块缺少自动化测试，收益释放节奏会更慢。
+              <ul class="metrics">
+                <li>单需求改造人天：12.2 → 9.5（-22%）</li>
+                <li>跨模块连带缺陷：9起/月 → 6起/月（-33%）</li>
+                <li>回滚次数：3.1次/月 → 2.2次/月（-29%）</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case">
+            <img src="case_images_v4/case06_manufacturing_incident.png" alt="制造业生产异常修复闭环场景示意图" />
+            <h4>案例6｜制造客户：生产异常修复闭环</h4>
+            <div class="body">
+              痛点：生产故障定位高度依赖资深工程师经验，夜间应急频繁且同类问题重复发生，恢复效率受限。<br /><strong>MetaCode 如何介入：</strong>关联日志、近期代码变更与告警事件，输出候选修复路径和验证步骤，并沉淀“故障-修复-验证”知识卡。<br /><strong>核心价值：</strong>缩短故障定位与恢复闭环时间，减少重复故障导致的运营扰动，提升团队稳定性治理能力。<br /><strong>适用前提/边界条件：</strong>适用于日志时间戳统一且告警可追溯到服务级的系统；若监控埋点缺失严重，定位准确率会受到限制。
+              <ul class="metrics">
+                <li>MTTR：6.2小时 → 4.8小时（-23%）</li>
+                <li>重复故障率：17% → 12%（-5pp）</li>
+                <li>夜间紧急修复：6.8次/月 → 4.9次/月（-28%）</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="rollout">
+        <h2>如何在你的团队开始落地</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>推荐实施节奏</h3>
+            <ul>
+              <li>第1周：环境接入与权限策略</li>
+              <li>第2-3周：关键场景A/B复测</li>
+              <li>第4周：效率、质量、稳定性复盘</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>治理与风险控制建议</h3>
+            <ul>
+              <li>高风险改动保留人工审核</li>
+              <li>统一指标看板进行周度复盘</li>
+              <li>先稳定一个高频场景，再复制扩展</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <h2>常见问题（FAQ）</h2>
+        <details>
+          <summary>MetaCode 免费吗？</summary>
+          <p>当前版本可免费安装使用；模型调用费用由所选模型服务商收取。</p>
+        </details>
+        <details>
+          <summary>与IDE插件类工具的主要差异是什么？</summary>
+          <p>MetaCode 更强调终端中的复杂任务执行与工具链编排，适用于多文件改造、流程协同与团队治理场景。</p>
+        </details>
+        <details>
+          <summary>支持哪些模型？</summary>
+          <p>支持接入兼容接口的模型服务，可按团队场景配置模型来源、推理策略与成本控制方案。</p>
+        </details>
+        <details>
+          <summary>如何启动试点并衡量结果？</summary>
+          <p>建议先选2–3个高频场景，固定指标口径后进行2–4周A/B复测，形成客观评估结论。</p>
+        </details>
+      </section>
+
+      <footer>杭州元任务科技有限公司 ｜ MetaCode 官网发布版 v6.4（科技感 · 业务结果三维度配图版）</footer>
+    </div>
+  </body>
+</html>
+
