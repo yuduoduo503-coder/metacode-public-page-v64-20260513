@@ -1,374 +1,1971 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MetaCode｜官网产品介绍 v6.4（科技感 · 使用效果三维度配图版）</title>
-    <meta
-      name="description"
-      content="MetaCode 官网产品介绍：聚焦使用效果、工程能力、行业案例与团队落地路径。"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+QingKe+HuangYou&family=JetBrains+Mono:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaCode 产品介绍与上手指南</title>
     <style>
-      :root {
-        --bg: #060b16;
-        --bg-2: #0a1224;
-        --panel: rgba(12, 20, 40, 0.82);
-        --line: rgba(86, 149, 255, 0.28);
-        --ink: #e9f2ff;
-        --ink-soft: #9bb4da;
-        --brand: #5bd5ff;
-        --ok: #43e7b0;
-        --radius: 16px;
-      }
-      * { box-sizing: border-box; }
-      html, body {
-        margin: 0;
-        padding: 0;
-        color: var(--ink);
-        font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", sans-serif;
-        background:
-          radial-gradient(circle at 14% 8%, rgba(88, 142, 255, 0.26), transparent 35%),
-          radial-gradient(circle at 92% 18%, rgba(67, 231, 176, 0.14), transparent 30%),
-          linear-gradient(180deg, var(--bg), var(--bg-2));
-        line-height: 1.72;
-      }
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background-image:
-          linear-gradient(rgba(94, 149, 255, 0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(94, 149, 255, 0.06) 1px, transparent 1px);
-        background-size: 26px 26px;
-        mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
-      }
-      a { color: var(--brand); text-decoration: none; }
-      .frame { max-width: 1180px; margin: 0 auto; padding: 20px 18px 80px; position: relative; z-index: 1; }
-      .topbar {
-        position: sticky; top: 10px; z-index: 20;
-        border: 1px solid var(--line); border-radius: 999px;
-        background: rgba(8, 14, 30, 0.78); backdrop-filter: blur(10px);
-        padding: 8px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;
-        box-shadow: 0 0 0 1px rgba(91, 213, 255, 0.08), 0 20px 34px rgba(5, 9, 22, 0.5);
-      }
-      .brand { font-family: "ZCOOL QingKe HuangYou", sans-serif; font-size: 1.3rem; color: #d7ecff; }
-      .nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-      .nav a { color: var(--ink-soft); font-size: 0.81rem; padding: 4px 8px; border-radius: 999px; border: 1px solid transparent; }
-      .nav a:hover { color: #ddf4ff; border-color: rgba(91, 213, 255, 0.35); background: rgba(17, 31, 58, 0.66); }
-
-      .hero {
-        margin-top: 20px; border: 1px solid rgba(91, 213, 255, 0.36); border-radius: 22px;
-        background: linear-gradient(150deg, rgba(17, 39, 80, 0.95), rgba(8, 20, 44, 0.96));
-        padding: 36px 30px 30px; position: relative; overflow: hidden;
-        box-shadow: 0 0 60px rgba(49, 107, 255, 0.22), inset 0 0 20px rgba(118, 213, 255, 0.08);
-      }
-      .hero::after {
-        content: "META TASK · METACODE · v0.1.8";
-        position: absolute; right: 22px; top: 18px;
-        font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: #8ec9ff;
-      }
-      h1 { margin: 0 0 10px; font-family: "ZCOOL QingKe HuangYou", sans-serif; font-size: clamp(2.2rem, 4.3vw, 3.1rem); letter-spacing: 1px; }
-      .hero p { margin: 0; max-width: 900px; color: #cbe5ff; }
-      .chips { margin-top: 16px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-      .chip { border: 1px solid rgba(91, 213, 255, 0.35); border-radius: 12px; padding: 10px 12px; background: rgba(9, 18, 36, 0.72); font-size: 0.86rem; }
-
-      .section {
-        margin-top: 16px; background: var(--panel); border: 1px solid var(--line);
-        border-radius: var(--radius); padding: 22px;
-        box-shadow: inset 0 1px 0 rgba(160, 218, 255, 0.08), 0 14px 28px rgba(0, 0, 0, 0.24);
-      }
-      h2 { margin: 0 0 12px; font-size: 1.28rem; color: #d5edff; }
-      h3 { margin: 12px 0 8px; font-size: 1.03rem; color: #c8e6ff; }
-      p { margin: 0; }
-      .hint { color: var(--ink-soft); }
-      .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-      .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-      .card { border: 1px solid rgba(91, 213, 255, 0.26); background: rgba(8, 14, 30, 0.72); border-radius: 14px; padding: 14px; }
-      .card strong { color: #dff4ff; }
-      ul { margin: 8px 0 0 18px; padding: 0; }
-      li { margin: 4px 0; }
-
-      table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.9rem; }
-      th, td { border-bottom: 1px solid rgba(103, 152, 219, 0.32); padding: 10px 8px; text-align: left; vertical-align: top; }
-      th { color: #c4e5ff; background: rgba(17, 35, 68, 0.72); }
-
-      pre {
-        margin: 8px 0 0; background: #030812; color: #cce7ff; border: 1px solid rgba(91, 213, 255, 0.2);
-        border-radius: 10px; padding: 12px; overflow-x: auto; font-size: 0.86rem;
-      }
-      code { font-family: "JetBrains Mono", Menlo, Consolas, monospace; }
-
-      .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-      .case { border: 1px solid rgba(91, 213, 255, 0.28); border-radius: 12px; background: rgba(8, 15, 30, 0.78); overflow: hidden; }
-      .case img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; }
-      .case h4 { margin: 0; padding: 10px 12px; font-size: 0.98rem; color: #dff3ff; background: rgba(19, 36, 69, 0.75); }
-      .case .body { padding: 12px; font-size: 0.9rem; }
-      .metrics { margin-top: 8px; padding: 8px 10px; border-radius: 10px; background: rgba(9, 29, 39, 0.56); border: 1px solid rgba(67, 231, 176, 0.22); }
-      .metrics li { color: #ccf8ec; }
-
-      details { border: 1px solid rgba(91, 213, 255, 0.28); border-radius: 12px; padding: 10px 12px; background: rgba(8, 15, 30, 0.75); }
-      details + details { margin-top: 8px; }
-      summary { cursor: pointer; font-weight: 700; color: #c7e6ff; }
-
-      .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(91,213,255,.35); font-size: .74rem; color: #a8ddff; margin-left: 6px; }
-      footer { text-align: center; color: #83a3cc; font-size: 0.84rem; margin-top: 20px; }
-
-      @media (max-width: 1020px) {
-        .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .grid-3, .grid-2, .case-grid { grid-template-columns: 1fr; }
-      }
-      @media (max-width: 640px) {
-        .topbar { position: static; border-radius: 14px; }
-        .hero { padding: 26px 20px; }
-        .chips { grid-template-columns: 1fr; }
-        .section { padding: 16px; }
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f7fa;
+        }
+        
+        /* 导航栏 */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            overflow-y: auto;
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 25px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .sidebar-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .nav-section {
+            padding: 15px 20px 5px;
+            font-size: 0.7rem;
+            color: #5a6778;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .nav-list {
+            list-style: none;
+            padding: 5px 0;
+        }
+        
+        .nav-item {
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            color: #a0aec0;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            border-left-color: #00d4ff;
+        }
+        
+        .nav-item.active {
+            background: rgba(0,212,255,0.1);
+            color: #00d4ff;
+            border-left-color: #00d4ff;
+        }
+        
+        .nav-item.sub {
+            padding-left: 35px;
+            font-size: 0.85rem;
+        }
+        
+        .nav-highlight {
+            background: linear-gradient(90deg, rgba(102,126,234,0.3), transparent);
+            color: #fff !important;
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            margin-left: 300px;
+            padding: 40px 60px;
+            max-width: 1100px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            color: #1a1a2e;
+            margin: 45px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            color: #2d3748;
+            margin: 25px 0 12px;
+        }
+        
+        h4 {
+            font-size: 1rem;
+            color: #4a5568;
+            margin: 18px 0 10px;
+        }
+        
+        /* 文档头部 */
+        .doc-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+        }
+        
+        .doc-header h1 {
+            color: #fff;
+            font-size: 2.2rem;
+        }
+        
+        .doc-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .doc-meta {
+            display: flex;
+            gap: 25px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            flex-wrap: wrap;
+        }
+        
+        .user-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .user-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* 内容区块 */
+        .section {
+            background: #fff;
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* 卡片 */
+        .card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 18px 0;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin: 18px 0;
+        }
+        
+        .card-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        
+        .card-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.15);
+        }
+        
+        .card-item h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        /* 亮点卡片 */
+        .highlight-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .highlight-card h3 {
+            color: #fff;
+            margin-top: 0;
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .highlight-item {
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .highlight-item .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .highlight-item h4 {
+            color: #fff;
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+        
+        .highlight-item p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        /* 代码块 */
+        code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: "SF Mono", Monaco, monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a1a2e;
+            color: #e2e8f0;
+            padding: 18px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 18px 0;
+            font-family: "SF Mono", Monaco, monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        /* 表格 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        tr:hover {
+            background: #f7fafc;
+        }
+        
+        /* 标签 */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin: 2px;
+        }
+        
+        .tag-success { background: #c6f6d5; color: #276749; }
+        .tag-warning { background: #fefcbf; color: #975a16; }
+        .tag-danger { background: #fed7d7; color: #c53030; }
+        .tag-info { background: #bee3f8; color: #2b6cb0; }
+        .tag-purple { background: #e9d8fd; color: #6b46c1; }
+        
+        /* 步骤 */
+        .step {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .step::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: #667eea;
+            color: #fff;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .step h4 {
+            margin-top: 8px;
+        }
+        
+        /* 案例卡片 */
+        .case-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .case-card h3 {
+            margin-top: 10px;
+        }
+        
+        .case-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            padding: 3px 12px;
+            border-radius: 12px;
+        }
+        
+        .badge-1 { background: #4f46e5; }
+        .badge-2 { background: #0ea5e9; }
+        .badge-3 { background: #ec4899; }
+        .badge-4 { background: #f59e0b; }
+        .badge-5 { background: #10b981; }
+        .badge-6 { background: #8b5cf6; }
+        
+        /* 案例亮点卡片 */
+        .highlight-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 18px 0;
+        }
+        
+        .highlight-card strong {
+            color: #92400e;
+        }
+        
+        /* 三大差异化亮点深蓝版本 */
+        .highlight-card-blue {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            border: 1px solid #2c5282;
+            color: #fff;
+        }
+        
+        .highlight-card-blue h3 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card-blue strong {
+            color: #90cdf4;
+        }
+        
+        .highlight-card-blue .highlight-item h4 {
+            color: #fff;
+        }
+        
+        .highlight-card-blue .highlight-item p {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* 效果对比 */
+        .effect-compare {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin: 18px 0;
+            background: #f7fafc;
+            border-radius: 12px;
+        }
+        
+        .effect-item {
+            text-align: center;
+            padding: 15px 25px;
+            border-radius: 10px;
+        }
+        
+        .effect-item .label {
+            display: block;
+            font-size: 0.8rem;
+            color: #718096;
+            margin-bottom: 5px;
+        }
+        
+        .effect-item .time {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        
+        .effect-item.before {
+            background: #fed7d7;
+        }
+        
+        .effect-item.before .time {
+            color: #c53030;
+        }
+        
+        .effect-item.after {
+            background: #c6f6d5;
+        }
+        
+        .effect-item.after .time {
+            color: #276749;
+        }
+        
+        .effect-compare .arrow {
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+        
+        /* 能力标签 */
+        .ability-tag {
+            display: inline-block;
+            background: #e9d8fd;
+            color: #6b46c1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 4px 4px 4px 0;
+        }
+        
+        /* 对话框 */
+        .dialog {
+            background: #f7fafc;
+            border-radius: 10px;
+            margin: 12px 0;
+            overflow: hidden;
+        }
+        
+        .dialog-header {
+            padding: 10px 15px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .dialog-user {
+            background: #667eea;
+            color: #fff;
+        }
+        
+        .dialog-ai {
+            background: #e9d8fd;
+            color: #6b46c1;
+        }
+        
+        .dialog-content {
+            padding: 15px;
+        }
+        
+        /* 提示框 */
+        .tip {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            padding: 15px 18px;
+            border-radius: 0 10px 10px 0;
+            margin: 18px 0;
+        }
+        
+        .tip-title {
+            font-weight: 600;
+            color: #2b6cb0;
+            margin-bottom: 5px;
+        }
+        
+        .important-tip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 18px;
+            border-radius: 0 10px 10px 0;
+            margin: 18px 0;
+        }
+        
+        .important-tip .tip-title {
+            color: #856404;
+        }
+        
+        .success-tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px 18px;
+            border-radius: 0 10px 10px 0;
+            margin: 18px 0;
+        }
+        
+        .success-tip .tip-title {
+            color: #155724;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin: 12px 0;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background: #f7fafc;
+            padding: 15px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 15px 18px;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* 视频占位 */
+        .video-placeholder {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 15px;
+            padding: 60px;
+            text-align: center;
+            color: #fff;
+            margin: 25px 0;
+        }
+        
+        .video-placeholder .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        
+        .video-placeholder h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .video-placeholder p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* 用户类型指引 */
+        .user-guide {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .user-guide-item {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .user-guide-item:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+        }
+        
+        .user-guide-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .user-guide-item h4 {
+            margin: 8px 0 5px;
+            color: #1a1a2e;
+        }
+        
+        .user-guide-item p {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        
+        /* 快速导航 */
+        .quick-nav {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .quick-nav h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        .quick-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .quick-nav-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #4a5568;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .quick-nav-item:hover {
+            background: #667eea;
+            color: #fff;
+        }
+        
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #8892b0;
+            font-size: 0.85rem;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            
+            .user-guide {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 滚动条 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
     </style>
-  </head>
-  <body>
-    <div class="frame">
-      <div class="topbar">
-        <div class="brand">MetaCode</div>
-        <nav class="nav" aria-label="页面导航">
-          <a href="#overview">产品概览</a>
-          <a href="#decision">使用效果</a>
-          <a href="#capability">核心能力</a>
-          <a href="#cases">行业案例</a>
-          <a href="#rollout">实施路径</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-      </div>
-
-      <header class="hero" id="overview">
-        <h1>MetaCode</h1>
-        <p>
-          面向开发者与技术团队的 AI 命令行编码 Agent。<br />
-          以终端原生体验为核心，把代码生成、修改、审查、脚本与工具链协同整合到同一条工程工作流，
-          支撑从个人提效到团队治理的持续演进。
-        </p>
-        <div class="chips">
-          <div class="chip"><strong>安装快</strong><br />一条命令即可启动</div>
-          <div class="chip"><strong>终端原生</strong><br />贴近真实研发习惯</div>
-          <div class="chip"><strong>可扩展</strong><br />MCP / Skills / 插件生态</div>
-          <div class="chip"><strong>可治理</strong><br />支持团队规范化落地</div>
+</head>
+<body>
+    <!-- 侧边导航 -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1>🚀 MetaCode</h1>
+            <p>产品介绍与上手指南 v4.1</p>
         </div>
-        <p class="hint" style="margin-top: 10px;">适用于高频迭代团队、复杂系统协作场景，以及对研发过程可追溯性有明确要求的组织。</p>
-      </header>
-
-      <section class="section" id="decision">
-        <h2>你将获得的使用效果</h2>
-        <div class="grid-3">
-          <div class="card">
-            <img src="case_images_v4/outcome_efficiency.png" alt="MetaCode提升研发交付效率的可视化示意图" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; border-radius:10px; margin-bottom:10px;" loading="lazy" />
-            <strong>效率提升</strong>
-            <ul>
-              <li>缩短需求到提测链路时间</li>
-              <li>减少高并发研发阶段的PR积压</li>
-              <li>提升跨服务改造任务推进速度</li>
-            </ul>
-          </div>
-          <div class="card">
-            <img src="case_images_v4/outcome_quality_stability.png" alt="MetaCode提升代码质量与系统稳定性的可视化示意图" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; border-radius:10px; margin-bottom:10px;" loading="lazy" />
-            <strong>质量与稳定性</strong>
-            <ul>
-              <li>补齐异常分支与高风险回归覆盖</li>
-              <li>降低漏改返工与联调延期概率</li>
-              <li>缩短故障定位与恢复闭环时间</li>
-            </ul>
-          </div>
-          <div class="card">
-            <img src="case_images_v4/outcome_governance.png" alt="MetaCode支撑团队治理与研发规范化的可视化示意图" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; border-radius:10px; margin-bottom:10px;" loading="lazy" />
-            <strong>组织治理能力</strong>
-            <ul>
-              <li>用Skills沉淀可复用流程资产</li>
-              <li>通过 MCP 连接既有工程与数据系统</li>
-              <li>支持团队级统一指标复盘机制</li>
-            </ul>
-          </div>
+        
+        <div class="nav-section">📚 快速了解</div>
+        <ul class="nav-list">
+            <li class="nav-item active" data-target="intro">产品简介</li>
+            <li class="nav-item" data-target="why">为什么选 MetaCode</li>
+            <li class="nav-item" data-target="user-guide">👤 我适合看哪里</li>
+        </ul>
+        
+        <div class="nav-section">🛠️ 快速上手（重点）</div>
+        <ul class="nav-list">
+            <li class="nav-item" data-target="install">安装 MetaCode</li>
+            <li class="nav-item sub" data-target="install-mac">→ macOS 安装</li>
+            <li class="nav-item sub" data-target="install-win">→ Windows 安装</li>
+            <li class="nav-item" data-target="api-key">配置 API Key</li>
+            <li class="nav-item sub" data-target="api-key-step">→ 获取 Key 步骤</li>
+            <li class="nav-item sub" data-target="api-key-config">→ 配置到本地</li>
+            <li class="nav-item" data-target="first-use">第一次使用</li>
+        </ul>
+        
+        <div class="nav-section">🎯 核心功能</div>
+        <ul class="nav-list">
+            
+            <li class="nav-item" data-target="concepts">核心概念</li>
+            <li class="nav-item sub" data-target="concept-session">→ 会话</li>
+            <li class="nav-item sub" data-target="concept-sandbox">→ 沙箱</li>
+            <li class="nav-item sub" data-target="concept-mcp">→ MCP</li>
+            <li class="nav-item sub" data-target="concept-skill">→ Skill</li>
+            <li class="nav-item" data-target="features">功能详解</li>
+        </ul>
+        
+        <div class="nav-section">💼 企业用户</div>
+        <ul class="nav-list">
+            <li class="nav-item nav-highlight" data-target="enterprise">企业版介绍</li>
+            <li class="nav-item" data-target="security">安全与隐私</li>
+            <li class="nav-item" data-target="team">团队协作</li>
+            <li class="nav-item" data-target="pricing">定价套餐</li>
+        </ul>
+        
+        <div class="nav-section">📖 详细案例</div>
+        <ul class="nav-list">
+            <li class="nav-item" data-target="cases">6 大真实案例</li>
+        </ul>
+        
+        <div class="nav-section">❓ 帮助</div>
+        <ul class="nav-list">
+            <li class="nav-item" data-target="faq">常见问题</li>
+            <li class="nav-item" data-target="glossary">术语表</li>
+            <li class="nav-item" data-target="video">📹 视频教程 <span class="tag tag-warning">制作中</span></li>
+        </ul>
+    </nav>
+    
+    <!-- 主内容 -->
+    <main class="main-content">
+        <!-- 文档头部 -->
+        <div class="doc-header" id="intro">
+            <h1>MetaCode 产品介绍与上手指南</h1>
+            <p>企业统一 AI 工作台 —— 让每个人都能高效使用 AI</p>
+            <div class="doc-meta">
+                <span>📅 更新日期：2026年6月3日</span>
+                <span>📖 版本：v4.1</span>
+                <span>👥 适用：新手 / 有基础用户 / 管理层</span>
+            </div>
+            <div class="user-tags">
+                <span class="user-tag">👶 零基础</span>
+                <span class="user-tag">💻 有基础</span>
+                <span class="user-tag">🏢 管理层</span>
+            </div>
         </div>
-        <p class="hint" style="margin-top: 10px;">
-          在大多数团队试点中，最先可见的变化通常发生在交付周期、返工频次与线上稳定性。为便于客观评估，建议统一跟踪 Lead Time、PR Cycle Time、缺陷逃逸率、回滚率、关键路径覆盖率、MTTR，并结合单需求改造人天进行阶段复盘。
-        </p>
-      </section>
-
-      <section class="section" id="capability">
-        <h2>MetaCode 如何支撑研发全流程</h2>
-        <div class="grid-2">
-          <article class="card">
-            <h3>代码与工程操作</h3>
-            <ul>
-              <li>代码生成、跨文件重构、代码解释、静态审查建议</li>
-              <li>Shell 命令执行、Git 协同操作、自动化脚本生成与优化</li>
-              <li>支持复杂任务的多轮规划与执行推进</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>扩展与协作</h3>
-            <ul>
-              <li>通过 MCP 协议接入数据库、API、文档系统与内部平台能力</li>
-              <li>MCP Server 模式可供其他 Agent 或自动化流程调用</li>
-              <li>Skills 体系沉淀团队可复用工作流</li>
-            </ul>
-          </article>
+        
+        <!-- 快速导航 -->
+        <div class="quick-nav">
+            <h4>🚀 快速跳转</h4>
+            <div class="quick-nav-grid">
+                <a href="#install" class="quick-nav-item">📥 立即安装</a>
+                <a href="#api-key" class="quick-nav-item">🔑 配置 Key</a>
+                <a href="#first-use" class="quick-nav-item">✨ 第一次用</a>
+                <a href="#cases" class="quick-nav-item">📋 看案例</a>
+                <a href="#pricing" class="quick-nav-item">💰 看价格</a>
+                <a href="#faq" class="quick-nav-item">❓ 常见问题</a>
+            </div>
         </div>
-
-        <h3>快速上手</h3>
-        <pre><code># macOS / Linux
-curl -fsSL https://metacode.pages.dev/install.sh | sh
-
-# Windows PowerShell
-irm https://metacode.pages.dev/install.ps1 | iex
-
-metacode --version</code></pre>
-
-        <h3>技术规格</h3>
-        <table>
-          <thead><tr><th>项目</th><th>说明</th></tr></thead>
-          <tbody>
-            <tr><td>支持系统</td><td>Linux / macOS / Windows</td></tr>
-            <tr><td>建议环境</td><td>macOS 12+ / Ubuntu 20.04+ / Windows 11 (WSL2)</td></tr>
-            <tr><td>典型内存占用</td><td>约 270 MB</td></tr>
-            <tr><td>典型输出速度</td><td>约 120 token/s</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="section" id="cases">
-        <h2>六个真实业务场景的落地结果（脱敏） <span class="tag">金融 ×2</span><span class="tag">电商 ×2</span><span class="tag">制造 ×2</span></h2>
-        <p class="hint">为保护客户信息，以下案例已做行业与数据脱敏处理。指标口径与实施方法可在你的团队试点阶段复现验证。</p>
-
-        <div class="case-grid" style="margin-top: 12px;">
-          <article class="case">
-            <img src="case_images_v4/case01_finance_risk_audit.png" alt="金融风控规则变更与审计追溯场景示意图" />
-            <h4>案例1｜金融客户：风控规则变更与审计追溯</h4>
-            <div class="body">
-              痛点：风控规则同时分布在规则引擎与多个服务代码中，需求变更后常出现影响面识别不全、审计材料补件频繁的问题。<br /><strong>MetaCode 如何介入：</strong>自动解析规则变更语义，定位受影响服务与配置节点，生成“需求-改动文件-测试用例”映射草稿，并补齐边界条件测试建议。<br /><strong>核心价值：</strong>把“靠个人经验排查”变为“结构化影响分析”，显著降低漏改与返工风险，同时提高审计追溯准备效率。<br /><strong>适用前提/边界条件：</strong>适用于规则需求具备结构化输入（字段、阈值、适用条件）的团队；若关键规则长期依赖口头约定且缺少历史沉淀，收益会受限。
-              <ul class="metrics">
-                <li>Lead Time：9.6天 → 7.2天（-25%）</li>
-                <li>返工频次：5.0次/周 → 3.2次/周（-36%）</li>
-                <li>审计补件次数：10次/月 → 7次/月（-30%）</li>
-              </ul>
+        
+        <!-- 1. 产品简介 -->
+        <section id="intro" class="section">
+            <h2>1. MetaCode 是什么？</h2>
+            
+            <div class="card">
+                <strong>一句话说明：</strong>MetaCode 是你的 AI 工作助手，它能理解你的需求、读写文件、运行命令、管理任务，就像一个不知疲倦的同事。
             </div>
-          </article>
-
-          <article class="case">
-            <img src="case_images_v4/case02_finance_regression.png" alt="金融核心交易链路回归提效场景示意图" />
-            <h4>案例2｜金融客户：核心交易链路回归提效</h4>
-            <div class="body">
-              痛点：核心交易链路发布窗口短、手工回归占比高，异常分支（超时、重试、幂等冲突）覆盖不足，导致线上偶发高影响缺陷。<br /><strong>MetaCode 如何介入：</strong>结合历史缺陷与近期改动，自动生成高风险回归集，优先覆盖异常分支，并在发布前输出风险改动清单。<br /><strong>核心价值：</strong>将回归资源集中到高风险路径，在不增加团队负担的前提下缩短回归耗时并提升关键路径覆盖率。<br /><strong>适用前提/边界条件：</strong>适用于具备历史缺陷与发布记录的系统；若测试环境与生产环境差异较大，回归收益会被部分抵消。
-              <ul class="metrics">
-                <li>回归耗时：15.0小时 → 9.8小时（-35%）</li>
-                <li>关键路径覆盖率：69% → 85%（+16pp）</li>
-                <li>严重缺陷：5起/季度 → 3起/季度</li>
-              </ul>
+            
+            <h3>1.1 能做什么？</h3>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🐛 Bug 修复</h4>
+                    <p>告诉它什么问题，它帮你找原因、修代码</p>
+                </div>
+                <div class="card-item">
+                    <h4>📝 写代码</h4>
+                    <p>描述需求，它帮你生成完整代码</p>
+                </div>
+                <div class="card-item">
+                    <h4>📊 数据分析</h4>
+                    <p>丢一张表给它，自动分析生成报告</p>
+                </div>
+                <div class="card-item">
+                    <h4>🎨 设计物料</h4>
+                    <p>说出你想要的设计，它帮你做出来</p>
+                </div>
+                <div class="card-item">
+                    <h4>📝 写文案</h4>
+                    <p>一次生成多个平台的营销文案</p>
+                </div>
+                <div class="card-item">
+                    <h4>📋 整理纪要</h4>
+                    <p>会议录音丢给它，自动生成纪要和待办</p>
+                </div>
             </div>
-          </article>
-
-          <article class="case">
-            <img src="case_images_v4/case03_ecommerce_campaign.png" alt="电商大促前密集需求迭代场景示意图" />
-            <h4>案例3｜电商客户：大促前密集需求迭代</h4>
-            <div class="body">
-              痛点：大促前需求并发激增，PR积压与跨团队沟通成本同步上升，评审效率下降并放大回归风险。<br /><strong>MetaCode 如何介入：</strong>针对模板化活动规则变更生成改造建议，自动生成结构化 PR 摘要与风险提示，并给出回归优先级建议。<br /><strong>核心价值：</strong>减少评审沟通损耗，提升并发阶段代码流转速度，帮助团队在高峰期稳定提升交付吞吐。<br /><strong>适用前提/边界条件：</strong>适用于模板化或规则化变更占比较高的业务；若需求主要为全新复杂能力开发，短期提效幅度通常低于模板化场景。
-              <ul class="metrics">
-                <li>PR Cycle Time：30.5小时 → 21.3小时（-30%）</li>
-                <li>人均交付故事点：+22%</li>
-                <li>回滚率：4.0% → 3.8%</li>
-              </ul>
+            
+            <h3>1.2 三大差异化亮点 ✨</h3>
+            <div class="highlight-card highlight-card-blue">
+                <h3>为什么选 MetaCode 而不是其他 AI 工具？</h3>
+                <div class="highlight-grid">
+                    <div class="highlight-item">
+                        <div class="icon">⚡</div>
+                        <h4>速度快</h4>
+                        <p>优化过的响应速度，比同类产品快 30%</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">🔒</div>
+                        <h4>数据安全</h4>
+                        <p>本地处理能力，敏感数据不外传</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">🎯</div>
+                        <h4>稳定可靠</h4>
+                        <p>企业级稳定性，少掉线少崩溃</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">🧩</div>
+                        <h4>内置 Skill</h4>
+                        <p>开箱即用的模板，无需从零学起</p>
+                    </div>
+                </div>
             </div>
-          </article>
-
-          <article class="case">
-            <img src="case_images_v4/case04_ecommerce_contracts.png" alt="电商接口契约变更联调治理场景示意图" />
-            <h4>案例4｜电商客户：接口契约变更联调治理</h4>
-            <div class="body">
-              痛点：接口版本频繁变更时，上下游系统对变更感知滞后，联调轮次高、上线延期和返工成本增加。<br /><strong>MetaCode 如何介入：</strong>自动识别字段增删与语义变更的上下游影响，生成契约测试建议与联调检查单，标记高风险破坏性改动。<br /><strong>核心价值：</strong>把“联调后暴露问题”前移到“开发阶段可预警”，降低联调反复与延期概率，提升跨团队协作确定性。<br /><strong>适用前提/边界条件：</strong>适用于接口契约可结构化提取（OpenAPI/IDL/可解析文档）的系统；若上下游未执行契约测试流程，效果会明显下降。
-              <ul class="metrics">
-                <li>联调轮次：4.4轮 → 3.0轮（-32%）</li>
-                <li>缺陷前置发现率：54% → 73%（+19pp）</li>
-                <li>上线延期：5次/月 → 3次/月（-40%）</li>
-              </ul>
+            
+            <h3>1.3 与其他工具对比</h3>
+            <table>
+                <thead>
+                    <tr><th>对比项</th><th>搜索工具</th><th>通用对话 AI</th><th>MetaCode</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>理解你的文件</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>直接修改文件</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>运行命令</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>内置 Skill 模板</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>团队协作</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>企业安全</td><td>❌</td><td>基础</td><td>✅ 完整</td></tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- 2. 为什么选 MetaCode -->
+        <section id="why" class="section">
+            <h2>2. 为什么选 MetaCode？</h2>
+            
+            <h3>2.1 对新手的价值</h3>
+            <div class="card">
+                <ul style="padding-left: 20px;">
+                    <li><strong>不用学命令</strong>：像聊天一样说话就行</li>
+                    <li><strong>不用学配置</strong>：内置 Skill 模板，直接用</li>
+                    <li><strong>不怕问蠢问题</strong>：它会耐心解释</li>
+                    <li><strong>可以追问</strong>：没听懂可以继续问</li>
+                </ul>
             </div>
-          </article>
-
-          <article class="case">
-            <img src="case_images_v4/case05_manufacturing_legacy.png" alt="制造业遗留系统增量改造场景示意图" />
-            <h4>案例5｜制造客户：遗留系统增量改造</h4>
-            <div class="body">
-              痛点：遗留系统中业务规则分散在旧代码与脚本中，改造常牵一发而动全身，需求估算偏差与连带缺陷并发出现。<br /><strong>MetaCode 如何介入：</strong>自动梳理调用链与依赖关系，识别低风险切入点，给出“最小改动路径 + 回滚检查点 + 验证脚本建议”。<br /><strong>核心价值：</strong>把大范围不确定改造拆解为可控增量步骤，降低历史系统改造的人天消耗与回滚风险。<br /><strong>适用前提/边界条件：</strong>适用于可访问核心仓库与近3个月变更记录的系统；若关键模块缺少自动化测试，收益释放节奏会更慢。
-              <ul class="metrics">
-                <li>单需求改造人天：12.2 → 9.5（-22%）</li>
-                <li>跨模块连带缺陷：9起/月 → 6起/月（-33%）</li>
-                <li>回滚次数：3.1次/月 → 2.2次/月（-29%）</li>
-              </ul>
+            
+            <h3>2.2 对有基础用户的价值</h3>
+            <div class="card">
+                <ul style="padding-left: 20px;">
+                    <li><strong>效率提升</strong>：重复性工作自动化</li>
+                    <li><strong>代码审查</strong>：自动检查代码质量</li>
+                    <li><strong>MCP 扩展</strong>：连接更多工具</li>
+                    <li><strong>自定义 Skill</strong>：打造自己的工具库</li>
+                </ul>
             </div>
-          </article>
-
-          <article class="case">
-            <img src="case_images_v4/case06_manufacturing_incident.png" alt="制造业生产异常修复闭环场景示意图" />
-            <h4>案例6｜制造客户：生产异常修复闭环</h4>
-            <div class="body">
-              痛点：生产故障定位高度依赖资深工程师经验，夜间应急频繁且同类问题重复发生，恢复效率受限。<br /><strong>MetaCode 如何介入：</strong>关联日志、近期代码变更与告警事件，输出候选修复路径和验证步骤，并沉淀“故障-修复-验证”知识卡。<br /><strong>核心价值：</strong>缩短故障定位与恢复闭环时间，减少重复故障导致的运营扰动，提升团队稳定性治理能力。<br /><strong>适用前提/边界条件：</strong>适用于日志时间戳统一且告警可追溯到服务级的系统；若监控埋点缺失严重，定位准确率会受到限制。
-              <ul class="metrics">
-                <li>MTTR：6.2小时 → 4.8小时（-23%）</li>
-                <li>重复故障率：17% → 12%（-5pp）</li>
-                <li>夜间紧急修复：6.8次/月 → 4.9次/月（-28%）</li>
-              </ul>
+            
+            <h3>2.3 对管理层的价值</h3>
+            <div class="card">
+                <ul style="padding-left: 20px;">
+                    <li><strong>成本可控</strong>：统一计费，用量清晰</li>
+                    <li><strong>团队可复制</strong>：把专家经验固化为模板</li>
+                    <li><strong>数据安全</strong>：企业级安全保障</li>
+                    <li><strong>管理可见</strong>：能看到谁在用、怎么用</li>
+                </ul>
             </div>
-          </article>
+        </section>
+        
+        <!-- 3. 用户类型指引 -->
+        <section id="user-guide" class="section">
+            <h2>3. 你适合看哪里？</h2>
+            <p>点击下面你的情况，快速定位到相关内容：</p>
+            
+            <div class="user-guide">
+                <div class="user-guide-item" onclick="document.getElementById('install').scrollIntoView({behavior: 'smooth'})">
+                    <div class="icon">👤</div>
+                    <h4>我是新手</h4>
+                    <p>从没用过 AI 工具，想快速上手</p>
+                </div>
+                <div class="user-guide-item" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+                    <div class="icon">💻</div>
+                    <h4>我有基础</h4>
+                    <p>会用 AI，想深入了解功能</p>
+                </div>
+                <div class="user-guide-item" onclick="document.getElementById('enterprise').scrollIntoView({behavior: 'smooth'})">
+                    <div class="icon">🏢</div>
+                    <h4>我是管理层</h4>
+                    <p>关注价值、安全、成本</p>
+                </div>
+            </div>
+            
+            <h3>快速阅读路径</h3>
+            <table>
+                <thead>
+                    <tr><th>你的情况</th><th>推荐阅读顺序</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>👤 零基础新手</td>
+                        <td>安装 → API Key 配置 → 第一次使用 → 看案例</td>
+                    </tr>
+                    <tr>
+                        <td>💻 有基础用户</td>
+                        <td>核心概念 → 功能详解 → Skill 自定义 → 看案例</td>
+                    </tr>
+                    <tr>
+                        <td>🏢 企业管理层</td>
+                        <td>为什么选 MetaCode → 企业版 → 安全隐私 → 定价 → 团队协作</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- 4. 安装 MetaCode -->
+        <section id="install" class="section">
+            <h2>4. 安装 MetaCode ⭐（新手必看）</h2>
+            
+            <div class="tip">
+                <div class="tip-title">💡 安装前检查</div>
+                <p>确保你的电脑满足：macOS 10.15+ / Windows 10+、网络正常、至少有 2GB 可用空间</p>
+            </div>
+            
+            <h3 id="install-mac">4.1 macOS 安装</h3>
+            
+            <div class="step" data-step="第一步">
+                <h4>打开终端</h4>
+                <p>按 <code>Command + 空格</code>，搜索"终端"，按回车打开。</p>
+            </div>
+            
+            <div class="step" data-step="第二步">
+                <h4>运行安装命令</h4>
+                <pre><code>curl -fsSL https://metacode.pages.dev/install.sh | sh</code></pre>
+                <div class="important-tip">
+                    <div class="tip-title">💡 提示</div>
+                    <p>安装过程中可能需要输入电脑密码（输入时看不见字符是正常的）。安装完成后会自动验证。</p>
+                </div>
+            </div>
+            
+            <div class="step" data-step="验证">
+                <h4>验证安装</h4>
+                <pre><code>metacode --version</code></pre>
+                <p>看到版本号（如 <code>metacode v0.2.1</code>）表示成功！</p>
+            </div>
+            
+            <h3 id="install-win">4.2 Windows 安装</h3>
+            
+            <div class="step" data-step="第一步">
+                <h4>打开 PowerShell</h4>
+                <p>右键开始菜单 → 选择"Windows PowerShell(管理员)"</p>
+            </div>
+            
+            <div class="step" data-step="第二步">
+                <h4>运行安装命令</h4>
+                <pre><code>irm https://metacode.pages.dev/install.ps1 | iex</code></pre>
+            </div>
+            
+            <div class="step" data-step="第三步">
+                <h4>验证安装</h4>
+                <pre><code>metacode --version</code></pre>
+            </div>
+            
+            <div class="success-tip">
+                <div class="tip-title">✅ 安装成功！</div>
+                接下来配置 API Key 就可以开始使用了
+            </div>
+        </section>
+        
+        <!-- 5. API Key 配置 -->
+        <section id="api-key" class="section">
+            <h2>5. 配置 API Key ⭐（新手必看）</h2>
+            
+            <div class="card">
+                <p><strong>API Key 是什么？</strong> 就像你的"身份证号"，让 MetaCode 知道是谁在使用服务。没有它，MetaCode 无法连接 AI 服务。</p>
+            </div>
+            
+            <h3 id="api-key-step">5.1 获取 API Key</h3>
+            
+            <div class="step" data-step="1.1">
+                <h4>打开 API Key 获取页面</h4>
+                <p>复制下面网址到浏览器打开：</p>
+                <div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <code style="font-size: 1rem;">https://napi.origintask.cn/keys/generatormckey</code>
+                    <br><br>
+                    <a href="https://napi.origintask.cn/keys/generatormckey" target="_blank" style="display: inline-block; background: #667eea; color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none;">👉 点击直接打开</a>
+                </div>
+                <p><img src="API配置-打开网页链接.png" alt="API Key 获取页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="1.2">
+                <h4>注册或登录账号</h4>
+                <p>如果没有账号，点击"注册"；如果已有账号，点击"登录"。</p>
+                <p><img src="API配置-注册页截图.png" alt="注册页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+                <p><img src="API配置-邮箱注册.png" alt="邮箱注册" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="1.3">
+                <h4>创建 API Key</h4>
+                <p>登录后，点击"创建"或"Generate"按钮。</p>
+                <p><img src="API配置-创建密钥.png" alt="创建密钥" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+                <p>填写 Key 名称（如"我的电脑"），选择类型和过期时间，然后点击创建。</p>
+                <p><img src="API配置-创建密钥-配置分组.png" alt="配置分组" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="1.4">
+                <h4>复制 API Key</h4>
+                <p>创建成功后，页面会显示一串密钥（以 <code>sk-</code> 开头）。<strong>立即复制保存！</strong>这个 Key 只显示一次。</p>
+                <p><img src="API配置-key获取.png" alt="获取 Key" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+                <div class="important-tip">
+                    <div class="tip-title">⚠️ 重要</div>
+                    API Key 只显示这一次！如果丢失，需要重新创建。
+                </div>
+            </div>
+            
+            <h3 id="api-key-config">5.2 配置到本地</h3>
+            
+            <div class="step" data-step="2.1">
+                <h4>打开终端</h4>
+                <p>运行 <code>metacode configure</code></p>
+            </div>
+            
+            <div class="step" data-step="2.2">
+                <h4>粘贴 API Key</h4>
+                <p>终端提示输入时，粘贴（<code>Command + V</code>）刚才复制的 Key，按回车。</p>
+            </div>
+            
+            <div class="step" data-step="2.3">
+                <h4>验证配置成功</h4>
+                <pre><code>metacode exec "你好，请回复测试成功"</code></pre>
+                <p>如果 MetaCode 回复了"测试成功"，说明配置正确！</p>
+            </div>
+            
+            <div class="success-tip">
+                <div class="tip-title">✅ 完成！</div>
+                配置只做一次，以后直接运行 <code>metacode</code> 就能用。
+            </div>
+        </section>
+        
+        <!-- 6. 第一次使用 -->
+        <section id="first-use" class="section">
+            <h2>6. 第一次使用</h2>
+            
+            <h3>6.1 启动 MetaCode</h3>
+            <pre><code>metacode</code></pre>
+            
+            <h3>6.2 试试这些简单任务</h3>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>📝 写一封信</h4>
+                    <p><code>帮我写一封请假邮件，内容是明天生病需要请假一天</code></p>
+                </div>
+                <div class="card-item">
+                    <h4>🐛 问问题</h4>
+                    <p><code>帮我解释一下什么是 API</code></p>
+                </div>
+                <div class="card-item">
+                    <h4>📊 分析数据</h4>
+                    <p><code>帮我分析这份销售数据，找出销量最高的产品</code></p>
+                </div>
+            </div>
+            
+            <h3>6.3 快捷键</h3>
+            <table>
+                <thead>
+                    <tr><th>快捷键</th><th>功能</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>Ctrl + C</code></td><td>取消当前操作</td></tr>
+                    <tr><td><code>↑ / ↓</code></td><td>历史命令切换</td></tr>
+                    <tr><td><code>Tab</code></td><td>自动补全</td></tr>
+                    <tr><td><code>Ctrl + L</code></td><td>清屏</td></tr>
+                </tbody>
+            </table>
+        </section>
+        
+        
+        
+        <!-- 8. 核心概念 -->
+        <section id="concepts" class="section">
+            <h2>7. 核心概念详解</h2>
+            
+            <h3 id="concept-session">7.1 会话（Session）</h3>
+            <div class="card">
+                <strong>类比：</strong>会话就像你和 MetaCode 的"对话记录本"。下次可以继续这个话题，也可以基于之前的状态开新分支。
+            </div>
+            
+            <h3 id="concept-sandbox">7.2 沙箱（Sandbox）</h3>
+            <div class="card">
+                <strong>类比：</strong>沙箱就像 MetaCode 的"游戏房"。它只能在特定区域活动，不能碰外面的东西。
+            </div>
+            <table>
+                <thead>
+                    <tr><th>模式</th><th>能做什么</th><th>不能做什么</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="tag tag-info">只读模式</span></td><td>读取文件、搜索</td><td>修改文件</td></tr>
+                    <tr><td><span class="tag tag-success">工作区模式</span></td><td>读取+修改项目文件</td><td>修改系统文件</td></tr>
+                    <tr><td><span class="tag tag-danger">完全权限</span></td><td>什么都行</td><td>危险！不推荐</td></tr>
+                </tbody>
+            </table>
+            
+            <h3 id="concept-mcp">7.3 MCP（工具连接）</h3>
+            <div class="card">
+                <strong>类比：</strong>MCP 就像 MetaCode 的"万能插头"，让它能连接 GitHub、数据库等各种工具。
+            </div>
+            
+            <h3 id="concept-skill">7.4 Skill（技能模板）</h3>
+            <div class="card">
+                <strong>类比：</strong>Skill 就像餐厅的"套餐"。不问你要怎么炒菜，而是问你想要什么套餐，按标准流程做好。
+            </div>
+            <p>MetaCode 内置多种 Skill，开箱即用：</p>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>📋 代码审查</h4>
+                    <p>自动检查代码质量</p>
+                </div>
+                <div class="card-item">
+                    <h4>✍️ 写测试</h4>
+                    <p>自动生成单元测试</p>
+                </div>
+                <div class="card-item">
+                    <h4>📝 生成文档</h4>
+                    <p>自动生成 API 文档</p>
+                </div>
+                <div class="card-item">
+                    <h4>🔄 代码翻译</h4>
+                    <p>翻译成其他语言</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 9. 功能详解 -->
+        <section id="features" class="section">
+            <h2>8. 功能详解</h2>
+            
+            <h3>8.1 代码理解与分析</h3>
+            <div class="card">
+                <p>MetaCode 能读取项目中的所有文件，理解代码结构和上下文，找出 Bug、提出优化建议。</p>
+            </div>
+            
+            <h3>8.2 代码编写与修改</h3>
+            <div class="card">
+                <p>描述需求，它帮你创建新文件、修改现有代码、重构代码结构。</p>
+            </div>
+            
+            <h3>8.3 Git 集成</h3>
+            <div class="card">
+                <p>MetaCode 深度集成 Git：状态查看、提交、推送、分支管理、冲突解决。</p>
+            </div>
+            
+            <h3>8.4 多 Agent 协作</h3>
+            <div class="card">
+                <p>复杂任务可以拆分成多个子任务，由不同的 Agent 并行处理。</p>
+            </div>
+            
+            <h3>8.5 自动化与定时任务</h3>
+            <div class="card">
+                <p>支持定时执行任务、CI/CD 集成、钩子脚本自动化。</p>
+            </div>
+            
+            <h3>8.6 非交互模式</h3>
+            <pre><code># 一次性任务
+metacode exec "修复所有 TODO 注释"
+
+# 管道输入
+echo "优化数据库" | metacode exec</code></pre>
+        </section>
+        
+        <!-- 10. 企业版介绍 -->
+        <section id="enterprise" class="section">
+            <h2>9. 企业版介绍 ⭐（管理层必看）</h2>
+            
+            <div class="highlight-card highlight-card-blue">
+                <h3>企业版核心价值</h3>
+                <div class="highlight-grid">
+                    <div class="highlight-item">
+                        <div class="icon">🔒</div>
+                        <h4>数据安全</h4>
+                        <p>本地处理能力，敏感数据不外传</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">👥</div>
+                        <h4>团队协作</h4>
+                        <p>共享 Skill、知识库、统一管理</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">💰</div>
+                        <h4>成本控制</h4>
+                        <p>统一计费，用量清晰可见</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">⚙️</div>
+                        <h4>定制服务</h4>
+                        <p>私有部署，专属客服</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>企业版功能对比</h3>
+            <table>
+                <thead>
+                    <tr><th>功能</th><th>个人版</th><th>企业版</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>共享 Skill</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>团队知识库</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>用量统计</td><td>基础</td><td>详细+导出</td></tr>
+                    <tr><td>私有部署</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>专属客服</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>培训服务</td><td>❌</td><td>✅</td></tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- 11. 安全与隐私 -->
+        <section id="security" class="section">
+            <h2>10. 安全与隐私 ⭐</h2>
+            
+            <h3>10.1 多层安全防护</h3>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>🛡️ 沙箱隔离</h4>
+                    <p>代码在隔离环境中执行，防止误操作</p>
+                </div>
+                <div class="card-item">
+                    <h4>✅ 命令审批</h4>
+                    <p>危险命令需要确认，防止误删</p>
+                </div>
+                <div class="card-item">
+                    <h4>🌐 网络控制</h4>
+                    <p>可限制网络访问，保护数据</p>
+                </div>
+                <div class="card-item">
+                    <h4>📝 审计日志</h4>
+                    <p>所有操作可追溯</p>
+                </div>
+            </div>
+            
+            <h3>10.2 数据安全保障</h3>
+            <div class="card">
+                <ul style="padding-left: 20px;">
+                    <li><strong>本地处理</strong>：敏感代码可本地处理，不上传云端</li>
+                    <li><strong>会话加密</strong>：会话数据加密存储</li>
+                    <li><strong>Key 安全</strong>：API 密钥存储在系统 keychain</li>
+                    <li><strong>传输安全</strong>：全程 HTTPS 加密</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 12. 团队协作 -->
+        <section id="team" class="section">
+            <h2>11. 团队协作</h2>
+            
+            <h3>11.1 团队配置</h3>
+            <div class="card">
+                <p>企业版支持：</p>
+                <ul style="padding-left: 20px;">
+                    <li>共享 Skill（团队模板库）</li>
+                    <li>共享知识库（专家经验沉淀）</li>
+                    <li>统一配置（规范团队 AI 使用）</li>
+                    <li>用量统计（谁在用、用多少）</li>
+                </ul>
+            </div>
+            
+            <h3>11.2 团队知识库价值</h3>
+            <div class="card">
+                <ul style="padding-left: 20px;">
+                    <li><strong>经验传承</strong>：把专家经验固化为可复用模板</li>
+                    <li><strong>新人培养</strong>：新成员快速上手</li>
+                    <li><strong>质量统一</strong>：团队输出质量一致</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 12. 定价套餐 -->
+        <section id="pricing" class="section">
+            <h2>12. 定价套餐</h2>
+            
+            <h3>VIP 等级体系（钱包储值）</h3>
+            <p>按滚动 12 个月累计消费分级，等级取决于过去 12 个月内的累计充值。</p>
+            
+            <table>
+                <thead>
+                    <tr><th>等级</th><th>累计门槛</th><th>模型 Tier</th><th>个人记忆体</th><th>并发数</th><th>日志保存</th><th>客服支持</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>V0</strong></td><td>&lt; ¥100</td><td>T1</td><td>200 MB</td><td>1</td><td>1 天</td><td>普通</td></tr>
+                    <tr><td><strong>V1</strong></td><td>≥ ¥100</td><td>T1</td><td>500 MB</td><td>2</td><td>3 天</td><td>普通</td></tr>
+                    <tr><td><strong>V2</strong></td><td>≥ ¥1,000</td><td>T1–T2</td><td>2 GB</td><td>3</td><td>7 天</td><td>优先</td></tr>
+                    <tr><td><strong>V3</strong></td><td>≥ ¥5,000</td><td>T1–T3（解锁 GPT）</td><td>5 GB</td><td>5</td><td>15 天</td><td>优先工单</td></tr>
+                    <tr><td><strong>V4</strong></td><td>≥ ¥10,000</td><td>T1–T4</td><td>15 GB</td><td>8</td><td>30 天</td><td>高优先级</td></tr>
+                    <tr><td><strong>V5</strong></td><td>≥ ¥30,000</td><td>T1–T5（解锁 Opus）</td><td>50 GB</td><td>12</td><td>90 天</td><td>专属客服</td></tr>
+                    <tr><td><strong>V6</strong></td><td>≥ ¥100,000</td><td>全量模型</td><td>200 GB+</td><td>20</td><td>180 天</td><td>客户成功</td></tr>
+                </tbody>
+            </table>
+            
+            <h3>Plan 订阅体系（团队协作）</h3>
+            <p>卖"组织能力"——团队协作、共享 Skill、共享记忆体、私有 MCP 团队化。</p>
+            
+            <div class="card-grid">
+                <div class="card-item" style="border: 2px solid #667eea;">
+                    <h3 style="color: #667eea; margin-top: 0;">Team Plan</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; margin: 10px 0;">¥1,000<span style="font-size: 0.8rem; font-weight: 400;">/月</span></p>
+                    <p style="color: #718096;">中小团队入门</p>
+                    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 15px 0;">
+                    <ul style="padding-left: 18px; color: #4a5568; font-size: 0.9rem;">
+                        <li>基础席位 + 团队空间</li>
+                        <li>全量行业 Skill 库</li>
+                        <li>共享记忆体 100 GB</li>
+                        <li>知识库 50 GB</li>
+                        <li>团队 token 池 + 席位配额管理</li>
+                    </ul>
+                </div>
+                
+                <div class="card-item" style="border: 2px solid #f59e0b; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
+                    <p style="background: #f59e0b; color: #fff; padding: 3px 10px; border-radius: 12px; display: inline-block; font-size: 0.7rem; margin: 0;">推荐</p>
+                    <h3 style="color: #f59e0b; margin-top: 8px;">Business Plan</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; margin: 10px 0;">¥3,000<span style="font-size: 0.8rem; font-weight: 400;">/月</span></p>
+                    <p style="color: #718096;">成长型企业</p>
+                    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 15px 0;">
+                    <ul style="padding-left: 18px; color: #4a5568; font-size: 0.9rem;">
+                        <li>全部 Team 能力</li>
+                        <li>SSO 单点登录</li>
+                        <li>审计日志 + 操作回溯</li>
+                        <li>私有 MCP team 绑定</li>
+                        <li>共享记忆体 500 GB</li>
+                        <li>知识库 300 GB</li>
+                    </ul>
+                </div>
+                
+                <div class="card-item" style="border: 2px solid #6b46c1; background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);">
+                    <h3 style="color: #6b46c1; margin-top: 0;">Enterprise Plan</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; margin: 10px 0;">Case by Case</p>
+                    <p style="color: #718096;">大客户合约</p>
+                    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 15px 0;">
+                    <ul style="padding-left: 18px; color: #4a5568; font-size: 0.9rem;">
+                        <li>专属客户经理 1v1</li>
+                        <li>SLA 服务等级承诺</li>
+                        <li>合规对接 + 私有部署</li>
+                        <li>记忆体/知识库 TB 级定制</li>
+                        <li>定制 Skill 与行业能力包</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>选型建议</h3>
+            <div class="card-grid">
+                <div class="card-item">
+                    <h4>👤 个人用户</h4>
+                    <p>从 V0 开始，按需充值升级<br>解锁更高级模型</p>
+                </div>
+                <div class="card-item">
+                    <h4>👥 小团队（3-10人）</h4>
+                    <p>推荐 Team Plan<br>共享 Skill + 知识库协作</p>
+                </div>
+                <div class="card-item">
+                    <h4>🏢 成长型企业</h4>
+                    <p>推荐 Business Plan<br>SSO + 审计 + 私有 MCP</p>
+                </div>
+                <div class="card-item">
+                    <h4>🏬 大型客户</h4>
+                    <p>Enterprise Plan<br>私有部署 + 定制服务</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 14. 6 大案例 -->
+        <section id="cases" class="section">
+            <h2>13. 6 大真实案例</h2>
+            
+            <p>以下是真实用户的使用场景，看看 MetaCode 能帮你做什么 —— 全部用"大白话"提需求，不用懂任何技术。</p>
+            
+            <!-- 案例1 -->
+            <div class="case-card">
+                <span class="case-badge badge-1">批量文本</span>
+                <h3>案例 1：300 条客户评价，10 分钟变成一张分析表</h3>
+                
+                <div class="card">
+                    <p><strong>👤 用户画像</strong></p>
+                    <p>李姐，38 岁，女装淘宝店主，只会用微信和 Excel 基础操作</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>😫 痛点场景</strong></p>
+                    <p>300 多条买家评价散在表格里，想知道大家夸什么、骂什么，一条条看要熬一整晚。</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <p><strong>💬 用户原话（直接复制粘贴就行）</strong></p>
+                    <p style="font-size: 1rem; line-height: 1.8;">"这个文件里是我店里的买家评价，你帮我看看大家主要在夸什么、抱怨什么，按好评、中评、差评分类，再告诉我差评最集中的 3 个问题，整理成一张表格给我。"</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🔧 metacode 怎么做</strong></p>
+                    <p>打开文件 → 逐条读懂情绪与主题 → 自动归类统计 → 找出差评高频问题 → 生成表格+总结</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🎁 最终交付物</strong></p>
+                    <p>Excel 分类统计表 + 一段"老板必看"文字结论</p>
+                </div>
+                
+                <div class="effect-compare">
+                    <div class="effect-item before">
+                        <span class="label">以前</span>
+                        <span class="time">一整晚（4小时）</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="effect-item after">
+                        <span class="label">现在</span>
+                        <span class="time">10 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #f0fdf4; border-left: 4px solid #22c55e;">
+                    <p><strong>🌟 用户回访</strong></p>
+                    <p>"照着它说的'发货才是丢分项'，我把打包流程改了。一个月后回头看，差评率从 26% 掉到 13%——衣服我一件没改，就改了发货。"<br>—— 李姐，女装淘宝店主</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>📊 效果对比</strong></p>
+                    <table style="margin-top: 10px;">
+                        <thead>
+                            <tr><th></th><th>以前</th><th>用 MetaCode</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>耗时</td><td>一整晚手动归类</td><td><strong>约 10 分钟</strong></td></tr>
+                            <tr><td>花钱</td><td>0 元或外包 200-500 元</td><td><strong>0 元</strong></td></tr>
+                            <tr><td>产出</td><td>看完一脑子浆糊</td><td>一张表 + 一句结论 + 可追问原话</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🧠 展示的 AI 能力</strong></p>
+                    <span class="ability-tag">批量文本理解</span>
+                    <span class="ability-tag">情感分类</span>
+                    <span class="ability-tag">脏数据识别</span>
+                    <span class="ability-tag">结构化表格</span>
+                    <span class="ability-tag">多轮对话追问</span>
+                </div>
+            </div>
+            
+            <!-- 案例2 -->
+            <div class="case-card">
+                <span class="case-badge badge-2">数据分析</span>
+                <h3>案例 2：一张销售流水，自己会说话</h3>
+                
+                <div class="card">
+                    <p><strong>👤 用户画像</strong></p>
+                    <p>老陈，45 岁，写字楼快餐店老板，会导出报表但看不懂数字含义</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>😫 痛点场景</strong></p>
+                    <p>半年销售流水全是数字，说不清哪天好、哪道菜赚钱、淡季何时。</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <p><strong>💬 用户原话（直接复制粘贴就行）</strong></p>
+                    <p style="font-size: 1rem; line-height: 1.8;">"这是我店里上半年的销售记录，帮我分析哪几个月生意最好最差？卖最好和最差的菜是哪些？周末和工作日差多少？画几张图，再给点经营建议。"</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🔧 metacode 怎么做</strong></p>
+                    <p>读表 → 多维度统计 → 找高峰低谷与异常 → 生成图表 → 大白话写结论建议</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🎁 最终交付物</strong></p>
+                    <p>带图分析报告 + 3~5 条可执行建议（可直接打印）</p>
+                </div>
+                
+                <div class="effect-compare">
+                    <div class="effect-item before">
+                        <span class="label">以前</span>
+                        <span class="time">找人做/不做</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="effect-item after">
+                        <span class="label">现在</span>
+                        <span class="time">15 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #f0fdf4; border-left: 4px solid #22c55e;">
+                    <p><strong>🌟 用户回访</strong></p>
+                    <p>"它说周末别关门、改推外卖。我照做了，周末没关，主推附近写字楼加班餐外卖，营收涨了三成多。要是当初一关了之，老客就跑了。"<br>—— 老陈，写字楼快餐店老板</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>📊 关键发现示例</strong></p>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>5 个月总营业额 ¥286,601，销冠：招牌红烧肉饭</li>
+                        <li>周末不到工作日一半——写字楼店通病</li>
+                        <li>2 月明显塌陷（春节），3 月起回到 6.6 万/月</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🧠 展示的 AI 能力</strong></p>
+                    <span class="ability-tag">大体量表格分析</span>
+                    <span class="ability-tag">脏数据清洗</span>
+                    <span class="ability-tag">多维度统计</span>
+                    <span class="ability-tag">可视化图表</span>
+                    <span class="ability-tag">业务洞察</span>
+                </div>
+            </div>
+            
+            <!-- 案例3 -->
+            <div class="case-card">
+                <span class="case-badge badge-3">设计</span>
+                <h3>案例 3：不会 PS，也能做出活动宣传单页</h3>
+                
+                <div class="card">
+                    <p><strong>👤 用户画像</strong></p>
+                    <p>王姐，42 岁，社区便利店运营，没设计师、不会设计软件</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>😫 痛点场景</strong></p>
+                    <p>周末促销要一张能发朋友圈、也能打印的宣传图，找设计师贵又慢。</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <p><strong>💬 用户原话（直接复制粘贴就行）</strong></p>
+                    <p style="font-size: 1rem; line-height: 1.8;">"帮我做一张周末促销的宣传单页，主题是'满100减20'，风格要喜庆一点、红色调，写上活动时间这周六日、还有我的店名'阳光便利店'和地址。做成手机和打印都能用的。"</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🔧 metacode 怎么做</strong></p>
+                    <p>理解需求 → 自动排版配色 → 生成网页版海报 → 可对话实时改</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🎁 最终交付物</strong></p>
+                    <p>手机/电脑可打开的宣传单页，可截图发圈或 Ctrl+P 打印</p>
+                </div>
+                
+                <div class="effect-compare">
+                    <div class="effect-item before">
+                        <span class="label">以前</span>
+                        <span class="time">设计师 200 元+等 1 天</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="effect-item after">
+                        <span class="label">现在</span>
+                        <span class="time">5 分钟、免费、随便改</span>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #f0fdf4; border-left: 4px solid #22c55e;">
+                    <p><strong>🌟 用户回访</strong></p>
+                    <p>"我发了朋友圈，又打印一张贴店门口。那个周末进店的人明显比平时多，好几个人是看了海报上的抽奖来的。"<br>—— 王姐，阳光便利店店主</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>💡 关键卖点：随口改</strong></p>
+                    <p>王姐随口说："'满100减20'再大再亮一点，加一句抽奖噱头，颜色要更正红。"<br>metacode 30 秒出一版新稿，改多少次都不要钱。</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🧠 展示的 AI 能力</strong></p>
+                    <span class="ability-tag">自然语言生成设计</span>
+                    <span class="ability-tag">自动排版配色</span>
+                    <span class="ability-tag">主动发现版式问题</span>
+                    <span class="ability-tag">对话式实时迭代</span>
+                    <span class="ability-tag">多尺寸适配</span>
+                </div>
+            </div>
+            
+            <!-- 案例4 -->
+            <div class="case-card">
+                <span class="case-badge badge-4">营销</span>
+                <h3>案例 4：一个新品上线，全平台文案一次到位</h3>
+                
+                <div class="card">
+                    <p><strong>👤 用户画像</strong></p>
+                    <p>小林，29 岁，咖啡液私域创业者，一个人管朋友圈/小红书/抖音/公众号四个号</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>😫 痛点场景</strong></p>
+                    <p>上新要在每个平台都发，挨个憋文案要一下午，风格还容易写串。</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <p><strong>💬 用户原话（直接复制粘贴就行）</strong></p>
+                    <p style="font-size: 1rem; line-height: 1.8;">"我新上了一款'冷萃手冲咖啡液'，卖点是 0 添加、3 秒出一杯、上班族适用。帮我写一套推广文案：朋友圈 3 条、小红书 1 篇带标题和标签、抖音口播脚本 1 个、公众号推文 1 篇。语气年轻一点。"</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🔧 metacode 怎么做</strong></p>
+                    <p>理解卖点受众 → 按平台调性分别写 → 配标题/emoji/话题/分镜 → 一次产出整套</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🎁 最终交付物</strong></p>
+                    <p>朋友圈 3 条 + 小红书 1 篇 + 抖音脚本 1 个 + 公众号推文 1 篇，可直接复制发布</p>
+                </div>
+                
+                <div class="effect-compare">
+                    <div class="effect-item before">
+                        <span class="label">以前</span>
+                        <span class="time">一下午（3~4 小时）</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="effect-item after">
+                        <span class="label">现在</span>
+                        <span class="time">10 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #f0fdf4; border-left: 4px solid #22c55e;">
+                    <p><strong>🌟 用户回访</strong></p>
+                    <p>"以前一个新品的全平台文案要憋一下午，现在 10 分钟出齐。上新当天四个号同时发，钩子统一，咨询量肉眼可见地多。"<br>—— 小林，咖啡液私域创业者</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🛡️ 顺手避坑</strong></p>
+                    <p>metacode 主动提醒：留了 `¥XX` 占位记得填价格；已避开"最""第一"等广告法违规词，换成了"打工人续命搭子"这种安全又有梗的说法。</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🧠 展示的 AI 能力</strong></p>
+                    <span class="ability-tag">多平台内容创作</span>
+                    <span class="ability-tag">平台调性适配</span>
+                    <span class="ability-tag">营销钩子设计</span>
+                    <span class="ability-tag">合规风险提示</span>
+                </div>
+            </div>
+            
+            <!-- 案例5 -->
+            <div class="case-card">
+                <span class="case-badge badge-5">调研</span>
+                <h3>案例 5：开店前，先把同行摸清楚</h3>
+                
+                <div class="card">
+                    <p><strong>👤 用户画像</strong></p>
+                    <p>阿强，33 岁，攒了点钱想在二线城市开奶茶店，对市场两眼一抹黑</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>😫 痛点场景</strong></p>
+                    <p>不知道竞争多激烈、同行卖多少、自己有没有机会，东查西查一周还是理不出结论。</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <p><strong>💬 用户原话（直接复制粘贴就行）</strong></p>
+                    <p style="font-size: 1rem; line-height: 1.8;">"我想在二线城市开一家奶茶店，帮我调研一下现在主流奶茶品牌的价格带、热门产品、营销玩法，分析一下市场饱和度，再告诉我一个新店想做出差异化可以从哪些方向切入。"</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🔧 metacode 怎么做</strong></p>
+                    <p>联网搜集 → 多源核对 → 横向对比 → 总结机会风险 → 差异化建议</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🎁 最终交付物</strong></p>
+                    <p>竞品对比表 + 市场分析报告 + 差异化建议清单（带来源可溯源）</p>
+                </div>
+                
+                <div class="effect-compare">
+                    <div class="effect-item before">
+                        <span class="label">以前</span>
+                        <span class="time">自己查一周理不清</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="effect-item after">
+                        <span class="label">现在</span>
+                        <span class="time">30 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #f0fdf4; border-left: 4px solid #22c55e;">
+                    <p><strong>🌟 用户回访</strong></p>
+                    <p>"它劝我别去拼平价、走'健康养生'差异化。我照着选了陈皮乌龙那条线，避开了和蜜雪正面打。开业三个月，靠这个差异化点在本地小红书攒了第一批回头客。"<br>—— 阿强，二线城市奶茶店主</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>📊 关键发现示例</strong></p>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>价格带：平价(蜜雪7元已封死) / 中端(12-16元) / 高端(17-22元)</li>
+                        <li>二线城市仅占 13.1%，被判断为未来最大增长空间</li>
+                        <li>4 个差异化方向：健康养生茶饮、盯细分人群、产品做减法、本地化私域</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🧠 展示的 AI 能力</strong></p>
+                    <span class="ability-tag">联网调研</span>
+                    <span class="ability-tag">多源交叉核对</span>
+                    <span class="ability-tag">竞品分析</span>
+                    <span class="ability-tag">策略建议</span>
+                </div>
+            </div>
+            
+            <!-- 案例6 -->
+            <div class="case-card">
+                <span class="case-badge badge-6">管理</span>
+                <h3>案例 6：2 小时会议录音，自动变成会议纪要+待办</h3>
+                
+                <div class="card">
+                    <p><strong>👤 用户画像</strong></p>
+                    <p>小周，30 岁，电商公司运营助理，每周整理周会纪要，开会多、整理烦</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>😫 痛点场景</strong></p>
+                    <p>2 小时周会要整理纪要、分清谁负责什么、何时交，靠记忆回放要大半天还易漏。</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <p><strong>💬 用户原话（直接复制粘贴就行）</strong></p>
+                    <p style="font-size: 1rem; line-height: 1.8;">"这是我们今天周会的录音转写文字，帮我整理成会议纪要：分主题写清讨论了什么、做了哪些决定，然后把所有要做的事整理成一张待办表，写清楚谁负责、什么时候完成。"</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🔧 metacode 怎么做</strong></p>
+                    <p>读懂会议文字 → 按议题归纳 → 提取决定与待办 → 识别负责人和时间 → 生成纪要+跟进表</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🎁 最终交付物</strong></p>
+                    <p>分议题会议纪要 + 待办跟进表（事项/负责人/截止时间）</p>
+                </div>
+                
+                <div class="effect-compare">
+                    <div class="effect-item before">
+                        <span class="label">以前</span>
+                        <span class="time">大半天（约 3 小时）</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="effect-item after">
+                        <span class="label">现在</span>
+                        <span class="time">10 分钟且不漏项</span>
+                    </div>
+                </div>
+                
+                <div class="card" style="background: #f0fdf4; border-left: 4px solid #22c55e;">
+                    <p><strong>🌟 用户回访</strong></p>
+                    <p>"最绝的是它发现'这周三前清积压'那句有歧义、当天就是周三，让我去确认。要不是它提醒，仓库那边肯定理解错、又得返工。纪要+待办当场发群，没人再说'我不知道这是我的活'。"<br>—— 小周，电商公司运营助理</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🔔 主动揪出冲突</strong></p>
+                    <p>metacode 发现并标注：阿明说"这周三前"清积压，但今天就是周三——是今天还是下周三？建议确认后再分发。</p>
+                </div>
+                
+                <div class="card">
+                    <p><strong>🧠 展示的 AI 能力</strong></p>
+                    <span class="ability-tag">长文本归纳</span>
+                    <span class="ability-tag">关键信息抽取</span>
+                    <span class="ability-tag">转写纠错</span>
+                    <span class="ability-tag">冲突检测</span>
+                    <span class="ability-tag">任务结构化</span>
+                </div>
+            </div>
+            
+            <div class="card" style="background: #fef3c7; border: 1px solid #fcd34d; text-align: center;">
+                <p style="font-size: 1.1rem; margin: 0;"><strong>💡 你也来试</strong></p>
+                <p style="margin-top: 10px;">把对应的数据文件拖进 MetaCode，说一句上面的"用户原话"，立刻看到同款效果。</p>
+            </div>
+        </section>
+        
+        <!-- 15. 视频教程 -->
+        <section id="video" class="section">
+            <h2>14. 视频教程 📹</h2>
+            
+            <div class="video-placeholder">
+                <div class="icon">🎬</div>
+                <h3>视频教程制作中</h3>
+                <p>我们正在制作详细的视频教程，包含：</p>
+                <ul style="list-style: none; padding: 0; margin-top: 15px; opacity: 0.8;">
+                    <li>📥 安装教程（macOS / Windows）</li>
+                    <li>🔑 API Key 配置教程</li>
+                    <li>✨ 第一次使用演示</li>
+                    <li>📋 6 大案例实操</li>
+                    <li>💼 企业版功能介绍</li>
+                </ul>
+                <p style="margin-top: 20px;">敬请期待！</p>
+            </div>
+        </section>
+        
+        <!-- 16. 常见问题 -->
+        <section id="faq" class="section">
+            <h2>15. 常见问题（FAQ）</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">❓ 安装失败怎么办？</div>
+                <div class="faq-answer">
+                    <ol>
+                        <li>检查系统要求（macOS 10.15+ / Windows 10+）</li>
+                        <li>检查网络连接</li>
+                        <li>确保有管理员权限</li>
+                        <li>查看详细错误：<code>metacode --verbose</code></li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">❓ API Key 配置失败？</div>
+                <div class="faq-answer">
+                    <ol>
+                        <li>确认复制完整，没有多余空格</li>
+                        <li>检查 Key 是否过期，重新创建</li>
+                        <li>检查网络连接</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">❓ 如何控制成本？</div>
+                <div class="faq-answer">
+                    <ol>
+                        <li>从小规模开始，先用 Team 套餐</li>
+                        <li>开启用量提醒</li>
+                        <li>简单任务用小模型</li>
+                        <li>定期查看统计：<code>metacode usage --month</code></li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">❓ MetaCode 安全吗？</div>
+                <div class="faq-answer">
+                    <p><strong>MetaCode 提供多重安全保障：</strong></p>
+                    <ul style="padding-left: 20px;">
+                        <li>🛡️ 沙箱隔离 - 代码在隔离环境中执行</li>
+                        <li>✅ 命令审批 - 危险命令需要确认</li>
+                        <li>🌐 网络控制 - 可限制网络访问</li>
+                        <li>📝 审计日志 - 所有操作可追溯</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">❓ 可以离线使用吗？</div>
+                <div class="faq-answer">
+                    可以配置本地模型使用，但功能可能受限。
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">❓ 如何获取技术支持？</div>
+                <div class="faq-answer">
+                    <p>访问 <a href="https://metask.ai/" target="_blank" style="color: #667eea;">官网客服中心</a> 获取支持，或发送邮件至客服邮箱。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 17. 术语表 -->
+        <section id="glossary" class="section">
+            <h2>16. 术语表</h2>
+            
+            <table>
+                <thead>
+                    <tr><th>术语</th><th>解释</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>会话 (Session)</td><td>一次与 MetaCode 的对话</td></tr>
+                    <tr><td>沙箱 (Sandbox)</td><td>隔离的安全执行环境</td></tr>
+                    <tr><td>MCP</td><td>让 MetaCode 调用外部工具的协议</td></tr>
+                    <tr><td>Skill</td><td>预定义的任务模板</td></tr>
+                    <tr><td>Agent</td><td>可独立执行子任务的智能代理</td></tr>
+                    <tr><td>Token</td><td>AI 计算单位，影响费用</td></tr>
+                    <tr><td>API Key</td><td>访问 API 服务的身份凭证</td></tr>
+                    <tr><td>AGENTS.md</td><td>项目级指令文件</td></tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>本文档最后更新于 2026年6月3日 | 版本：v4.1</p>
+            <p>相关资源：<a href="https://metask.ai" target="_blank">官网</a> | <a href="https://docs.metask.ai" target="_blank">文档</a> | <a href="https://github.com/metask/metacode" target="_blank">GitHub</a></p>
         </div>
-      </section>
-
-      <section class="section" id="rollout">
-        <h2>如何在你的团队开始落地</h2>
-        <div class="grid-2">
-          <div class="card">
-            <h3>推荐实施节奏</h3>
-            <ul>
-              <li>第1周：环境接入与权限策略</li>
-              <li>第2-3周：关键场景A/B复测</li>
-              <li>第4周：效率、质量、稳定性复盘</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>治理与风险控制建议</h3>
-            <ul>
-              <li>高风险改动保留人工审核</li>
-              <li>统一指标看板进行周度复盘</li>
-              <li>先稳定一个高频场景，再复制扩展</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="faq">
-        <h2>常见问题（FAQ）</h2>
-        <details>
-          <summary>MetaCode 免费吗？</summary>
-          <p>当前版本可免费安装使用；模型调用费用由所选模型服务商收取。</p>
-        </details>
-        <details>
-          <summary>与IDE插件类工具的主要差异是什么？</summary>
-          <p>MetaCode 更强调终端中的复杂任务执行与工具链编排，适用于多文件改造、流程协同与团队治理场景。</p>
-        </details>
-        <details>
-          <summary>支持哪些模型？</summary>
-          <p>支持接入兼容接口的模型服务，可按团队场景配置模型来源、推理策略与成本控制方案。</p>
-        </details>
-        <details>
-          <summary>如何启动试点并衡量结果？</summary>
-          <p>建议先选2–3个高频场景，固定指标口径后进行2–4周A/B复测，形成客观评估结论。</p>
-        </details>
-      </section>
-
-      <footer>杭州元任务科技有限公司 ｜ MetaCode 官网发布版 v6.4（科技感 · 使用效果三维度配图版）</footer>
-    </div>
-  </body>
+    </main>
+    
+    <script>
+        // 导航点击
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetId = this.dataset.target;
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // FAQ 展开/收起
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+        
+        // 滚动监听
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.target === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
-
