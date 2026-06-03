@@ -1106,17 +1106,18 @@
             
             <div class="step" data-step="2.1">
                 <h4>打开终端</h4>
-                <p>运行 <code>metacode configure</code></p>
+                <p>运行配置命令：</p>
+                <pre><code>metacode config</code></pre>
             </div>
             
             <div class="step" data-step="2.2">
                 <h4>粘贴 API Key</h4>
-                <p>终端提示输入时，粘贴（<code>Command + V</code>）刚才复制的 Key，按回车。</p>
+                <p>终端提示输入时，粘贴（<code>Ctrl + V</code> 或 <code>Command + V</code>）刚才复制的 Key，按回车。</p>
             </div>
             
             <div class="step" data-step="2.3">
                 <h4>验证配置成功</h4>
-                <pre><code>metacode exec "你好，请回复测试成功"</code></pre>
+                <pre><code>metacode exec --ephemeral --skip-git-repo-check "你好，请回复测试成功"</code></pre>
                 <p>如果 MetaCode 回复了"测试成功"，说明配置正确！</p>
             </div>
             
