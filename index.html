@@ -476,6 +476,48 @@
             margin: 4px 4px 4px 0;
         }
         
+        /* 案例模拟 */
+        .case-simulation {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #667eea;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin: 15px 0 25px;
+        }
+        
+        .case-simulation .sim-header {
+            background: #667eea;
+            color: #fff;
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .case-simulation .sim-user {
+            color: #667eea;
+            font-weight: 600;
+            margin: 8px 0 4px;
+        }
+        
+        .case-simulation .sim-ai {
+            color: #10b981;
+            font-weight: 600;
+            margin: 12px 0 4px;
+        }
+        
+        .case-simulation .sim-text {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
         /* 对话框 */
         .dialog {
             background: #f7fafc;
@@ -1177,7 +1219,7 @@
             </div>
         </section>
         
-        <!-- 9. 功能详解 -->
+        <!-- 8. 功能详解 -->
         <section id="features" class="section">
             <h2>8. 功能详解</h2>
             
@@ -1186,9 +1228,25 @@
                 <p>MetaCode 能读取项目中的所有文件，理解代码结构和上下文，找出 Bug、提出优化建议。</p>
             </div>
             
+            <div class="case-simulation">
+                <div class="sim-header">💬 案例模拟</div>
+                <div class="sim-user">用户：</div>
+                <div class="sim-text">"这个项目有个页面加载很慢，帮我分析一下是哪里出了问题"</div>
+                <div class="sim-ai">MetaCode：</div>
+                <div class="sim-text">"我分析了项目结构，发现 `index.js` 中有一个未优化的图片加载函数。建议在 `App.vue` 中使用懒加载，并将首屏不需要的图片延迟到滚动时再加载。优化后预计提升 40% 首屏加载速度。"</div>
+            </div>
+            
             <h3>8.2 代码编写与修改</h3>
             <div class="card">
                 <p>描述需求，它帮你创建新文件、修改现有代码、重构代码结构。</p>
+            </div>
+            
+            <div class="case-simulation">
+                <div class="sim-header">💬 案例模拟</div>
+                <div class="sim-user">用户：</div>
+                <div class="sim-text">"帮我写一个用户注册功能，包含表单验证和密码加密"</div>
+                <div class="sim-ai">MetaCode：</div>
+                <div class="sim-text">"已创建 `register.js` 和 `register.html`。<br>✅ 表单验证：邮箱格式、手机号、密码强度<br>✅ 密码加密：bcrypt 加密存储<br>✅ 错误提示：中文友好提示<br>✅ 样式：简洁现代的表单样式"</div>
             </div>
             
             <h3>8.3 Git 集成</h3>
@@ -1196,9 +1254,25 @@
                 <p>MetaCode 深度集成 Git：状态查看、提交、推送、分支管理、冲突解决。</p>
             </div>
             
+            <div class="case-simulation">
+                <div class="sim-header">💬 案例模拟</div>
+                <div class="sim-user">用户：</div>
+                <div class="sim-text">"帮我查看最近的提交记录，然后创建一个 feature/login 分支"</div>
+                <div class="sim-ai">MetaCode：</div>
+                <div class="sim-text">"📋 最近 3 次提交：<br>• abc123 - 修复导航栏样式<br>• def456 - 添加用户头像组件<br>• ghi789 - 优化首页加载速度<br><br>✅ 已创建并切换到新分支 `feature/login`"</div>
+            </div>
+            
             <h3>8.4 多 Agent 协作</h3>
             <div class="card">
                 <p>复杂任务可以拆分成多个子任务，由不同的 Agent 并行处理。</p>
+            </div>
+            
+            <div class="case-simulation">
+                <div class="sim-header">💬 案例模拟</div>
+                <div class="sim-user">用户：</div>
+                <div class="sim-text">"帮我重构整个后台管理系统"</div>
+                <div class="sim-ai">MetaCode：</div>
+                <div class="sim-text">"好的，我将启动多 Agent 并行工作：<br>🤖 Agent A：重构数据库层（表结构、ORM）<br>🤖 Agent B：重构 API 接口层<br>🤖 Agent C：重构前端组件<br>🤖 Agent D：编写测试用例<br><br>预计 15 分钟完成，比单 Agent 快 4 倍。"</div>
             </div>
             
             <h3>8.5 自动化与定时任务</h3>
@@ -1206,12 +1280,26 @@
                 <p>支持定时执行任务、CI/CD 集成、钩子脚本自动化。</p>
             </div>
             
+            <div class="case-simulation">
+                <div class="sim-header">💬 案例模拟</div>
+                <div class="sim-user">用户：</div>
+                <div class="sim-text">"每天早上 9 点自动生成一份昨日销售报表发到我邮箱"</div>
+                <div class="sim-ai">MetaCode：</div>
+                <div class="sim-text">"✅ 已设置定时任务：<br>⏰ 执行时间：每天 09:00<br>📊 任务内容：拉取昨日销售数据 → 生成报表 → 发送至 your@email.com<br><br>下次执行：明天 09:00"</div>
+            </div>
+            
             <h3>8.6 非交互模式</h3>
-            <pre><code># 一次性任务
-metacode exec "修复所有 TODO 注释"
-
-# 管道输入
-echo "优化数据库" | metacode exec</code></pre>
+            <div class="card">
+                <p>支持一次性命令执行和管道输入，适合脚本和 CI/CD 集成。</p>
+            </div>
+            
+            <div class="case-simulation">
+                <div class="sim-header">💬 案例模拟</div>
+                <div class="sim-user">用户：</div>
+                <div class="sim-text">"在终端运行命令帮我修复所有 TODO 注释"</div>
+                <div class="sim-ai">MetaCode：</div>
+                <div class="sim-text">"```bash<br># 一次性任务<br>metacode exec \"修复所有 TODO 注释\"<br><br># 或管道输入<br>echo \"优化数据库\" | metacode exec<br>```<br><br>✅ 已在 CI/CD 流程中集成，每次提交自动检查代码质量。"</div>
+            </div>
         </section>
         
         <!-- 10. 企业版介绍 -->
