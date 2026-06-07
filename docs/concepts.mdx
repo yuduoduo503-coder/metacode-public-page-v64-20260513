@@ -1,0 +1,57 @@
+---
+title: "核心概念"
+description: "用大白话理解会话、沙箱、MCP 和技能这四个关键概念。"
+---
+
+理解这四个概念，就能用好 MetaCode。
+
+## 会话（Session）
+
+<Info>
+  可以把它想成一本「对话记录本」。
+</Info>
+
+会话保留上下文，让 MetaCode 记得你们之前聊过什么；你也可以从某个节点开出新的分支讨论。
+
+## 沙箱（Sandbox）
+
+<Info>
+  一个「隔离的执行环境」，把 MetaCode 的操作限制在受保护的范围内，避免它误改你的系统。
+</Info>
+
+沙箱提供三种权限模式：
+
+| 模式 | 能做什么 | 限制 |
+| --- | --- | --- |
+| 只读 | 读取文件、搜索 | 禁止修改文件 |
+| 工作区 | 修改项目文件 | 保护系统文件 |
+| 完全权限 | 不受限制 | 不推荐（有风险） |
+
+<Warning>
+  「完全权限」模式不受任何限制，存在风险，一般不建议开启。
+</Warning>
+
+## MCP（工具接入）
+
+<Info>
+  一个「万能转接头」，让 MetaCode 能连接 GitHub、数据库等各种外部工具。
+</Info>
+
+## 技能（Skill）
+
+<Info>
+  像「菜单预设」，把标准化的工作流封装好，不用每次手动配置。
+</Info>
+
+内置技能包括：
+
+<CardGroup cols={2}>
+  <Card title="代码审查" icon="magnifying-glass" />
+  <Card title="写测试" icon="vial" />
+  <Card title="生成文档" icon="file-lines" />
+  <Card title="代码翻译" icon="language" />
+</CardGroup>
+
+<Tip>
+  名词不熟？查阅完整的 [术语表](/glossary)。
+</Tip>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaCode 文档 · 预览</title>
+<style>
+  :root{
+    --primary:#10B981; --primary-dark:#059669; --primary-light:#34D399;
+    --bg:#ffffff; --bg-soft:#f6f8f7; --border:#e6e8eb;
+    --text:#1f2933; --text-soft:#5b6670; --code-bg:#0f1720; --code-text:#e6f6ee;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Helvetica,Arial,sans-serif;
+       color:var(--text);background:var(--bg);line-height:1.7;font-size:15px;}
+  a{color:var(--primary-dark);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* top bar */
+  header.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:14px;
+    height:60px;padding:0 22px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;}
+  .brand .badge{width:30px;height:30px;border-radius:8px;background:var(--primary);
+    color:#fff;display:grid;place-items:center;font-weight:800;}
+  .top .spacer{flex:1;}
+  .top .cta{background:var(--primary);color:#fff;padding:8px 16px;border-radius:8px;font-weight:600;font-size:14px;}
+  .top .cta:hover{background:var(--primary-dark);text-decoration:none;}
+  .top .ghost{color:var(--text-soft);font-size:14px;font-weight:600;}
+
+  .layout{display:flex;max-width:1280px;margin:0 auto;}
+  /* sidebar */
+  nav.side{width:260px;flex:none;padding:26px 16px 60px;border-right:1px solid var(--border);
+    height:calc(100vh - 60px);position:sticky;top:60px;overflow-y:auto;}
+  nav.side .grp{margin-bottom:22px;}
+  nav.side .grp-title{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-soft);
+    font-weight:700;margin:0 10px 8px;}
+  nav.side a{display:block;padding:7px 10px;border-radius:7px;color:var(--text-soft);font-size:14.5px;}
+  nav.side a:hover{background:var(--bg-soft);text-decoration:none;color:var(--text);}
+  nav.side a.active{background:#e7f7f0;color:var(--primary-dark);font-weight:600;}
+
+  main{flex:1;min-width:0;padding:34px 46px 120px;max-width:860px;}
+  section{padding-top:24px;margin-top:24px;border-top:1px solid var(--border);}
+  section:first-child{border-top:none;margin-top:0;}
+  h1{font-size:30px;margin:.2em 0 .1em;font-weight:800;letter-spacing:-.01em;}
+  h2{font-size:22px;margin:1.4em 0 .5em;font-weight:700;}
+  h3{font-size:17px;margin:1.3em 0 .4em;font-weight:700;}
+  .lead{color:var(--text-soft);font-size:16px;margin:.2em 0 1em;}
+  p{margin:.6em 0;}
+
+  /* cards */
+  .cards{display:grid;gap:14px;margin:16px 0;}
+  .cards.c2{grid-template-columns:repeat(2,1fr);}
+  .cards.c3{grid-template-columns:repeat(3,1fr);}
+  .card{border:1px solid var(--border);border-radius:12px;padding:16px;background:var(--bg);
+    transition:.15s;}
+  .card:hover{border-color:var(--primary-light);box-shadow:0 4px 16px rgba(16,185,129,.08);}
+  .card .ico{font-size:20px;margin-bottom:6px;}
+  .card .ct{font-weight:700;margin-bottom:4px;}
+  .card .cd{color:var(--text-soft);font-size:13.5px;line-height:1.55;}
+
+  /* callouts */
+  .cal{border-radius:10px;padding:12px 16px;margin:14px 0;border:1px solid;font-size:14.5px;}
+  .cal.note{background:#eef6ff;border-color:#cfe4ff;}
+  .cal.tip{background:#ecfdf3;border-color:#bbf0d3;}
+  .cal.warn{background:#fff7ed;border-color:#fde2bd;}
+  .cal.check{background:#ecfdf3;border-color:#bbf0d3;}
+  .cal b{display:block;margin-bottom:2px;}
+
+  /* table */
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px;}
+  th,td{border:1px solid var(--border);padding:9px 12px;text-align:left;}
+  th{background:var(--bg-soft);font-weight:700;}
+  td.c,th.c{text-align:center;}
+
+  /* code */
+  pre{background:var(--code-bg);color:var(--code-text);padding:14px 16px;border-radius:10px;
+    overflow-x:auto;font-size:13.5px;margin:12px 0;}
+  code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;}
+  p code,li code,td code{background:var(--bg-soft);padding:2px 6px;border-radius:5px;font-size:13px;color:var(--primary-dark);}
+  .tablabel{font-size:12px;color:#8aa;margin-bottom:6px;}
+
+  /* steps */
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:14px 0;}
+  ol.steps>li{position:relative;padding:2px 0 14px 40px;margin:0;}
+  ol.steps>li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+    width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;
+    display:grid;place-items:center;font-size:13px;font-weight:700;}
+  ol.steps>li:not(:last-child)::after{content:"";position:absolute;left:12.5px;top:28px;bottom:2px;width:1.5px;background:var(--border);}
+  ol.steps .st{font-weight:600;}
+
+  .pill{display:inline-block;background:#e7f7f0;color:var(--primary-dark);font-size:12px;
+    font-weight:600;padding:2px 9px;border-radius:20px;margin-left:6px;}
+  .quote{border-left:3px solid var(--primary-light);padding:2px 0 2px 14px;color:var(--text-soft);font-style:italic;margin:10px 0;}
+  .muted{color:var(--text-soft);font-size:13px;font-style:italic;}
+
+  .topbtn{position:fixed;right:22px;bottom:22px;background:var(--primary);color:#fff;
+    width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:20px;
+    box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:40;}
+  .topbtn:hover{background:var(--primary-dark);text-decoration:none;}
+
+  .notice{background:#fffbe9;border:1px solid #f3e6a8;color:#7a6a1f;font-size:13px;
+    padding:8px 14px;text-align:center;}
+
+  @media(max-width:900px){
+    nav.side{display:none;}
+    main{padding:24px 20px 100px;}
+    .cards.c2,.cards.c3{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">📄 这是「离线预览版」单文件 HTML，用于查看内容与排版效果。正式上线后由 Mintlify 渲染，外观会更精致（搜索、AI 问答、深色模式等）。</div>
+
+<header class="top">
+  <span class="brand"><span class="badge">M</span> MetaCode</span>
+  <span class="spacer"></span>
+  <a class="ghost" href="https://napi.origintask.cn/register" target="_blank">注册</a>
+  <a class="cta" href="https://napi.origintask.cn/register" target="_blank">立即安装</a>
+</header>
+
+<div class="layout">
+  <nav class="side" id="side">
+    <div class="grp">
+      <div class="grp-title">开始使用</div>
+      <a href="#intro">认识 MetaCode</a>
+      <a href="#quickstart">快速上手</a>
+      <a href="#firstuse">第一次使用</a>
+      <a href="#why">为什么选 MetaCode</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title">核心概念</div>
+      <a href="#concepts">核心概念</a>
+      <a href="#features">功能详解</a>
+      <a href="#glossary">术语表</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title">真实案例</div>
+      <a href="#cases">六大真实案例</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title">企业与团队</div>
+      <a href="#enterprise">企业版</a>
+      <a href="#team">团队协作</a>
+      <a href="#security">安全与隐私</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title">价格与帮助</div>
+      <a href="#pricing">价格</a>
+      <a href="#faq">常见问题</a>
+      <a href="#tutorials">视频教程</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- 认识 -->
+    <section id="intro">
+      <h1>认识 MetaCode</h1>
+      <p class="lead">一个懂你需求、能读写文件、会跑命令、像不知疲倦的同事一样帮你干活的 AI 工作助手。</p>
+      <h2>它都能做什么</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico">💻</div><div class="ct">修 Bug · 写代码</div><div class="cd">理解项目结构，定位问题，直接改代码。</div></div>
+        <div class="card"><div class="ico">📈</div><div class="ct">数据分析</div><div class="cd">读表格、做统计、出图表和结论。</div></div>
+        <div class="card"><div class="ico">🎨</div><div class="ct">设计物料</div><div class="cd">一句话生成海报、宣传图等可分享素材。</div></div>
+        <div class="card"><div class="ico">✍️</div><div class="ct">写文案</div><div class="cd">多平台营销文案，自动适配各平台语气。</div></div>
+        <div class="card"><div class="ico">📝</div><div class="ct">整理纪要</div><div class="cd">会议录音整理成纪要 + 待办清单。</div></div>
+        <div class="card"><div class="ico">✨</div><div class="ct">更多</div><div class="cd">把重复繁琐的工作交给它自动完成。</div></div>
+      </div>
+      <h2>三大差异化优势</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ico">⚡</div><div class="ct">更快</div><div class="cd">相比同类产品速度快约 30%。</div></div>
+        <div class="card"><div class="ico">🔒</div><div class="ct">数据安全</div><div class="cd">本地处理，敏感数据不外传。</div></div>
+        <div class="card"><div class="ico">🛡️</div><div class="ct">稳定可靠</div><div class="cd">企业级稳定性，更少中断。</div></div>
+        <div class="card"><div class="ico">📦</div><div class="ct">内置技能</div><div class="cd">开箱即用的模板，几乎零学习成本。</div></div>
+      </div>
+      <h2>和其他工具有什么不一样</h2>
+      <table>
+        <tr><th>能力</th><th class="c">搜索工具</th><th class="c">通用 AI</th><th class="c">MetaCode</th></tr>
+        <tr><td>理解文件</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓ 完整</td></tr>
+        <tr><td>直接修改文件</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td></tr>
+        <tr><td>执行命令</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td></tr>
+        <tr><td>内置技能模板</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td></tr>
+        <tr><td>团队协作</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td></tr>
+        <tr><td>企业级安全</td><td class="c">✗</td><td class="c">✗</td><td class="c">✓</td></tr>
+      </table>
+    </section>
+
+    <!-- 快速上手 -->
+    <section id="quickstart">
+      <h1>快速上手</h1>
+      <p class="lead">只需三步即可开始：注册 → 安装 → 授权。授权成功后无需额外配置，直接使用。</p>
+      <h2>第一步：注册账号</h2>
+      <ol class="steps">
+        <li><span class="st">打开注册页面</span><br>访问 <a href="https://napi.origintask.cn/register" target="_blank">https://napi.origintask.cn/register</a></li>
+        <li><span class="st">用邮箱注册</span><br>填写邮箱，完成邮箱验证。</li>
+        <li><span class="st">设置密码</span><br>设置登录密码，看到注册成功提示后即可安装。</li>
+      </ol>
+      <h2>第二步：安装</h2>
+      <h3>Windows</h3>
+      <ol class="steps">
+        <li><span class="st">以管理员身份打开 PowerShell</span><br>右键「开始」菜单 → 「Windows PowerShell（管理员）」。</li>
+        <li><span class="st">运行安装命令</span><pre><code>irm https://napi.origintask.cn/install/metacode | iex</code></pre></li>
+        <li><span class="st">完成授权</span><br>浏览器自动打开授权页，点击「立即授权」。</li>
+        <li><span class="st">验证安装</span><pre><code>metacode --version</code></pre>看到版本号即成功。</li>
+      </ol>
+      <h3>macOS / Linux</h3>
+      <ol class="steps">
+        <li><span class="st">打开终端</span><br>macOS 按 <code>Cmd + 空格</code>，搜索「终端 / Terminal」。</li>
+        <li><span class="st">运行安装命令</span><pre><code>curl -fsSL https://napi.origintask.cn/install/metacode | sh</code></pre></li>
+        <li><span class="st">完成授权</span><br>浏览器自动打开授权页，点击「立即授权」。</li>
+        <li><span class="st">验证安装</span><pre><code>metacode --version</code></pre>看到版本号即成功。</li>
+      </ol>
+      <div class="cal check"><b>✅ 授权成功后无需额外配置，可直接开始使用。</b></div>
+      <h2>版本升级</h2>
+      <p><b>自动更新：</b>MetaCode 启动时会自动检查更新，有新版本会提示升级。</p>
+      <p><b>手动升级：</b>重新运行上面的安装命令即可升级到最新版，完成后用 <code>metacode</code> 重启。</p>
+    </section>
+
+    <!-- 第一次使用 -->
+    <section id="firstuse">
+      <h1>第一次使用</h1>
+      <p class="lead">启动 MetaCode，用自然语言交给它第一个任务。</p>
+      <h2>启动</h2>
+      <pre><code>metacode</code></pre>
+      <p>进入界面后，像聊天一样用大白话说出需求即可。</p>
+      <h2>试试这些任务</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico">✉️</div><div class="ct">帮我写一封请假邮件</div></div>
+        <div class="card"><div class="ico">❓</div><div class="ct">解释一下什么是 API</div></div>
+        <div class="card"><div class="ico">📊</div><div class="ct">分析一下这份销售数据</div></div>
+      </div>
+      <h2>常用快捷键</h2>
+      <table>
+        <tr><th>快捷键</th><th>作用</th></tr>
+        <tr><td><code>Ctrl + C</code></td><td>取消当前操作</td></tr>
+        <tr><td><code>↑ / ↓</code></td><td>浏览历史命令</td></tr>
+        <tr><td><code>Tab</code></td><td>自动补全</td></tr>
+        <tr><td><code>Ctrl + L</code></td><td>清屏</td></tr>
+      </table>
+    </section>
+
+    <!-- 为什么选 -->
+    <section id="why">
+      <h1>为什么选 MetaCode</h1>
+      <p class="lead">对新手、有基础用户和管理层，各自带来不同价值。</p>
+      <h3>对新手</h3>
+      <div class="cards c2">
+        <div class="card"><div class="ct">🪄 无需学命令</div><div class="cd">用自然语言描述需求即可。</div></div>
+        <div class="card"><div class="ct">📦 内置技能模板</div><div class="cd">开箱即用，不用从零摸索。</div></div>
+        <div class="card"><div class="ct">💬 耐心解释概念</div><div class="cd">遇到不懂的，它会讲清楚。</div></div>
+        <div class="card"><div class="ct">↩️ 支持追问</div><div class="cd">一步步追问，直到满意。</div></div>
+      </div>
+      <h3>对有基础用户</h3>
+      <div class="cards c2">
+        <div class="card"><div class="ct">🤖 自动化重复工作</div><div class="cd">把繁琐重复的活交给它。</div></div>
+        <div class="card"><div class="ct">🔍 自动代码审查</div><div class="cd">自动发现问题、给出建议。</div></div>
+        <div class="card"><div class="ct">🔌 MCP 扩展</div><div class="cd">接入 GitHub、数据库等外部工具。</div></div>
+        <div class="card"><div class="ct">🛠️ 自定义技能</div><div class="cd">打造专属自己的工作流。</div></div>
+      </div>
+      <h3>对管理层</h3>
+      <div class="cards c2">
+        <div class="card"><div class="ct">🧾 计费透明</div><div class="cd">花了多少、花在哪，清清楚楚。</div></div>
+        <div class="card"><div class="ct">📚 知识沉淀</div><div class="cd">经验模板化，便于团队传承。</div></div>
+        <div class="card"><div class="ct">🛡️ 企业级安全</div><div class="cd">满足企业安全合规要求。</div></div>
+        <div class="card"><div class="ct">📊 用量可视</div><div class="cd">使用情况一目了然，可导出。</div></div>
+      </div>
+    </section>
+
+    <!-- 核心概念 -->
+    <section id="concepts">
+      <h1>核心概念</h1>
+      <p class="lead">理解这四个概念，就能用好 MetaCode。</p>
+      <h3>会话（Session）</h3>
+      <div class="cal note"><b>📒 一本「对话记录本」</b>保留上下文，让它记得之前聊过什么；也可从某个节点开出新分支。</div>
+      <h3>沙箱（Sandbox）</h3>
+      <div class="cal note"><b>📦 一个「隔离的执行环境」</b>把操作限制在受保护范围内，避免误改系统。</div>
+      <table>
+        <tr><th>模式</th><th>能做什么</th><th>限制</th></tr>
+        <tr><td>只读</td><td>读取文件、搜索</td><td>禁止修改文件</td></tr>
+        <tr><td>工作区</td><td>修改项目文件</td><td>保护系统文件</td></tr>
+        <tr><td>完全权限</td><td>不受限制</td><td>不推荐（有风险）</td></tr>
+      </table>
+      <div class="cal warn"><b>⚠️ 注意</b>「完全权限」模式不受任何限制，存在风险，一般不建议开启。</div>
+      <h3>MCP（工具接入）</h3>
+      <div class="cal note"><b>🔌 一个「万能转接头」</b>让 MetaCode 能连接 GitHub、数据库等外部工具。</div>
+      <h3>技能（Skill）</h3>
+      <div class="cal note"><b>📋 像「菜单预设」</b>把标准化工作流封装好，不用每次手动配置。</div>
+      <div class="cards c2">
+        <div class="card"><div class="ct">🔎 代码审查</div></div>
+        <div class="card"><div class="ct">🧪 写测试</div></div>
+        <div class="card"><div class="ct">📄 生成文档</div></div>
+        <div class="card"><div class="ct">🌐 代码翻译</div></div>
+      </div>
+    </section>
+
+    <!-- 功能详解 -->
+    <section id="features">
+      <h1>功能详解</h1>
+      <h2>代码理解与分析</h2>
+      <p>读取项目文件，理解结构，发现 Bug，提出优化建议。</p>
+      <div class="quote">示例：页面加载慢 → 定位到未优化的图片加载函数，建议改用懒加载，预计提速 40%。</div>
+      <h2>代码编写与修改</h2>
+      <p>根据需求新建文件、修改现有代码、重构结构。</p>
+      <div class="quote">示例：要做注册功能 → 生成 register.js / register.html，含表单校验、加密和错误提示。</div>
+      <h2>Git 集成</h2>
+      <p>深度集成：查看状态、提交、推送、分支管理、解决冲突。</p>
+      <div class="quote">示例：询问提交历史并新建分支 → 展示近期提交，创建并切换到 feature/login。</div>
+      <h2>多智能体协作</h2>
+      <p>复杂任务拆分给多个智能体并行处理，速度更快。</p>
+      <div class="quote">示例：系统重构 → 多个智能体同时处理数据库层、API 层、前端、测试，比单个快约 4 倍。</div>
+      <h2>自动化与定时任务</h2>
+      <p>支持定时执行、CI/CD 集成、基于 Hook 的自动化。</p>
+      <div class="quote">示例：每天 09:00 自动生成销售报表并邮件发送。</div>
+      <h2>非交互模式</h2>
+      <p>一次性执行命令、支持管道输入，方便接入脚本和 CI。</p>
+      <pre><code>metacode exec "修复所有 TODO 注释"
+
+echo "优化数据库" | metacode exec</code></pre>
+    </section>
+
+    <!-- 案例 -->
+    <section id="cases">
+      <h1>六大真实案例</h1>
+      <p class="lead">来自店主、运营、创业者的真实场景 —— 从几小时到几分钟。</p>
+
+      <h2>案例一：300 条客户评价，10 分钟出分析表</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ct">👤 用户</div><div class="cd">李女士，38 岁，网店裙装店主</div></div>
+        <div class="card"><div class="ct">⏱️ 耗时</div><div class="cd">一整晚（约 4 小时）→ <b>10 分钟</b></div></div>
+      </div>
+      <p><b>痛点：</b>300 多条零散评价，人工逐条看要一整晚。</p>
+      <div class="quote">"分析顾客都夸什么、抱怨什么，把评价归类，找出最常见的 3 个投诉问题，输出成表格。"</div>
+      <div class="cal note"><b>结果</b>据此调整发货流程，差评率一个月内从 26% 降到 13%。</div>
+
+      <h2>案例二：销售数据，自己「开口说话」</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ct">👤 用户</div><div class="cd">陈先生，45 岁，写字楼快餐店主</div></div>
+        <div class="card"><div class="ct">⏱️ 耗时</div><div class="cd">自己看不明白 → <b>15 分钟</b></div></div>
+      </div>
+      <p><b>痛点：</b>半年流水只有一堆数字，看不出旺淡季，不知哪些菜赚钱。</p>
+      <div class="quote">"分析最好最差的月份、最受欢迎的菜、周末与工作日差异，做成图表并给经营建议。"</div>
+      <div class="cal note"><b>结果</b>实施周末策略 + 外卖，营收提升 30%。关键发现：周末营收只有工作日一半；冠军是卤肉饭。</div>
+
+      <h2>案例三：不会设计，也能做促销海报</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ct">👤 用户</div><div class="cd">王先生，42 岁，社区便利店</div></div>
+        <div class="card"><div class="ct">⏱️ 耗时</div><div class="cd">设计师 ¥200 + 等 1 天 → <b>5 分钟，免费，无限改</b></div></div>
+      </div>
+      <p><b>痛点：</b>周末促销要张海报，找设计师又贵又慢。</p>
+      <div class="quote">"做一张'满 100 减 20'促销海报，喜庆红风格，店名'阳光便利店'，时间本周末，手机和打印都好看。"</div>
+      <div class="cal tip"><b>💡 亮点 · 对话迭代</b>说"把'减'字放大变亮、加上抽奖、红色更深"，30 秒重新生成。</div>
+
+      <h2>案例四：一个新品，全平台文案一次搞定</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ct">👤 用户</div><div class="cd">小林，29 岁，冷萃咖啡创业者</div></div>
+        <div class="card"><div class="ct">⏱️ 耗时</div><div class="cd">一下午（3–4 小时）→ <b>10 分钟</b></div></div>
+      </div>
+      <p><b>痛点：</b>每上新品都要给各平台单独写文案，费时又难统一调性。</p>
+      <div class="quote">"新品'冷萃手冲咖啡液'：写 3 条微信、1 篇小红书、1 个抖音脚本、1 篇公众号推文，年轻化语气。"</div>
+      <div class="cal warn"><b>⚠️ 主动合规提醒</b>系统标记"最""第一"等可能违反广告法的用词，建议改为"上班族的续命搭子"。</div>
+
+      <h2>案例五：开店前的竞品调研</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ct">👤 用户</div><div class="cd">阿强，33 岁，计划在二线城市开茶饮店</div></div>
+        <div class="card"><div class="ct">⏱️ 耗时</div><div class="cd">自己查一周还不清楚 → <b>30 分钟</b></div></div>
+      </div>
+      <p><b>痛点：</b>不清楚竞争程度、对手定价、自己能否做，缺乏调研基础。</p>
+      <div class="quote">"调研二线城市茶饮格局：主要品牌定价、爆款、营销打法、市场饱和度、差异化机会。"</div>
+      <div class="cal note"><b>结果</b>避开价格战，主打健康养生，用陈皮乌龙差异化，3 个月建立初始客群。关键发现：二线市场仅占 13.1%，是增长最快的机会区。</div>
+
+      <h2>案例六：2 小时会议录音 → 纪要 + 待办（10 分钟）</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ct">👤 用户</div><div class="cd">小周，30 岁，电商运营助理</div></div>
+        <div class="card"><div class="ct">⏱️ 耗时</div><div class="cd">手写 3 小时常遗漏 → <b>10 分钟，完整</b></div></div>
+      </div>
+      <p><b>痛点：</b>每周 2 小时例会要手记，总结要半天还容易漏。</p>
+      <div class="quote">"按主题总结（讨论/决议），把所有待办整理成表格，含负责人和截止时间。"</div>
+      <div class="cal tip"><b>💡 主动冲突检测</b>发现"本周三前清完积压"有歧义（今天就是周三），主动请求澄清，避免仓库混乱。</div>
+    </section>
+
+    <!-- 企业版 -->
+    <section id="enterprise">
+      <h1>企业版</h1>
+      <p class="lead">数据安全、团队协作、成本控制、定制服务 —— 为企业打造。</p>
+      <div class="cards c2">
+        <div class="card"><div class="ct">🔒 数据安全</div><div class="cd">本地处理，敏感数据不外传。</div></div>
+        <div class="card"><div class="ct">👥 团队协作</div><div class="cd">共享技能、知识库，统一管理。</div></div>
+        <div class="card"><div class="ct">🪙 成本控制</div><div class="cd">统一计费，用量清晰可见。</div></div>
+        <div class="card"><div class="ct">🛠️ 定制服务</div><div class="cd">私有化部署，专属支持。</div></div>
+      </div>
+      <h2>个人版 vs 企业版</h2>
+      <table>
+        <tr><th>功能</th><th class="c">个人版</th><th class="c">企业版</th></tr>
+        <tr><td>共享技能</td><td class="c">✗</td><td class="c">✓</td></tr>
+        <tr><td>团队知识库</td><td class="c">✗</td><td class="c">✓</td></tr>
+        <tr><td>用量统计</td><td class="c">基础</td><td class="c">详细 + 可导出</td></tr>
+        <tr><td>私有化部署</td><td class="c">✗</td><td class="c">✓</td></tr>
+        <tr><td>专属支持</td><td class="c">✗</td><td class="c">✓</td></tr>
+      </table>
+    </section>
+
+    <!-- 团队 -->
+    <section id="team">
+      <h1>团队协作</h1>
+      <p class="lead">共享技能库、知识库、统一配置，让团队产出更一致、上手更快。</p>
+      <div class="cards c2">
+        <div class="card"><div class="ct">📦 共享技能库</div><div class="cd">团队共用一套技能模板。</div></div>
+        <div class="card"><div class="ct">📖 共享知识库</div><div class="cd">集中沉淀团队经验与资料。</div></div>
+        <div class="card"><div class="ct">🎚️ 统一配置</div><div class="cd">全团队配置一致，规范落地。</div></div>
+        <div class="card"><div class="ct">📊 用量追踪</div><div class="cd">谁用了多少，一目了然。</div></div>
+      </div>
+      <h2>知识库的价值</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ct">💾 经验沉淀</div></div>
+        <div class="card"><div class="ct">🚀 快速上手</div></div>
+        <div class="card"><div class="ct">🟰 输出一致</div></div>
+      </div>
+    </section>
+
+    <!-- 安全 -->
+    <section id="security">
+      <h1>安全与隐私</h1>
+      <p class="lead">多层防护与数据安全保障，让 AI 编码安全可控。</p>
+      <h2>多层防护</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ct">📦 沙箱隔离</div><div class="cd">代码在隔离环境中执行。</div></div>
+        <div class="card"><div class="ct">✅ 命令审批</div><div class="cd">危险命令需要你确认。</div></div>
+        <div class="card"><div class="ct">🌐 网络管控</div><div class="cd">可限制网络访问。</div></div>
+        <div class="card"><div class="ct">📋 审计日志</div><div class="cd">所有操作可追溯。</div></div>
+      </div>
+      <h2>数据安全保障</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ct">🏠 本地处理</div><div class="cd">敏感代码在本地处理。</div></div>
+        <div class="card"><div class="ct">🔒 加密存储</div><div class="cd">会话数据加密保存。</div></div>
+        <div class="card"><div class="ct">🔑 密钥保护</div><div class="cd">API 密钥存于系统钥匙串。</div></div>
+        <div class="card"><div class="ct">🛡️ 全程 HTTPS</div><div class="cd">传输全程 HTTPS 加密。</div></div>
+      </div>
+    </section>
+
+    <!-- 价格 -->
+    <section id="pricing">
+      <h1>价格</h1>
+      <p class="lead">两套体系：面向个人的 VIP 等级，和面向团队的订阅套餐。</p>
+      <h2>VIP 等级（按钱包累计消费）</h2>
+      <table>
+        <tr><th>等级</th><th>门槛</th><th>模型权限</th><th>内存</th><th class="c">并发</th><th>日志保留</th><th>支持</th></tr>
+        <tr><td>V0</td><td>&lt; ¥100</td><td>T1</td><td>200MB</td><td class="c">1</td><td>1 天</td><td>标准</td></tr>
+        <tr><td>V1</td><td>≥ ¥100</td><td>T1</td><td>500MB</td><td class="c">2</td><td>3 天</td><td>标准</td></tr>
+        <tr><td>V2</td><td>≥ ¥1,000</td><td>T1–T2</td><td>2GB</td><td class="c">3</td><td>7 天</td><td>优先</td></tr>
+        <tr><td>V3</td><td>≥ ¥5,000</td><td>T1–T3（解锁 GPT）</td><td>5GB</td><td class="c">5</td><td>15 天</td><td>优先工单</td></tr>
+        <tr><td>V4</td><td>≥ ¥10,000</td><td>T1–T4</td><td>15GB</td><td class="c">8</td><td>30 天</td><td>高优先</td></tr>
+        <tr><td>V5</td><td>≥ ¥30,000</td><td>T1–T5（解锁 Opus）</td><td>50GB</td><td class="c">12</td><td>90 天</td><td>专属客户经理</td></tr>
+        <tr><td>V6</td><td>≥ ¥100,000</td><td>全部模型</td><td>200GB+</td><td class="c">20</td><td>180 天</td><td>客户成功</td></tr>
+      </table>
+      <h2>订阅套餐（团队协作）</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ct">团队版 · ¥1,000/月</div><div class="cd">基础席位 + 团队空间；完整技能库；100GB 共享内存；50GB 知识库。<br><span class="muted">适合小团队</span></div></div>
+        <div class="card"><div class="ct">商业版 · ¥3,000/月</div><div class="cd">含团队版全部；SSO 单点登录；审计日志；私有团队 MCP；500GB 共享内存；300GB 知识库。<br><span class="muted">适合成长型企业</span></div></div>
+        <div class="card"><div class="ct">企业版 · 定制报价</div><div class="cd">专属客户经理；SLA 保障；合规 + 私有化部署；TB 级定制；定制技能 + 行业包。<br><span class="muted">适合大型组织</span></div></div>
+      </div>
+      <h2>怎么选</h2>
+      <table>
+        <tr><th>用户类型</th><th>推荐</th></tr>
+        <tr><td>个人</td><td>从 V0 起步，按需升级</td></tr>
+        <tr><td>小团队（3–10 人）</td><td>团队版（共享技能 + 知识库）</td></tr>
+        <tr><td>成长型企业</td><td>商业版（SSO + 审计 + MCP）</td></tr>
+        <tr><td>大型组织</td><td>企业版（私有化部署）</td></tr>
+      </table>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h1>常见问题</h1>
+      <h3>安装失败怎么办？</h3>
+      <p>① 确认系统要求（macOS 10.15+ / Windows 10+）② 检查网络 ③ 确认管理员权限 ④ 查看详细报错：<code>metacode --verbose</code></p>
+      <h3>API Key 配置失败？</h3>
+      <p>① 确认完整复制无多余空格 ② 检查密钥是否过期，必要时重新生成 ③ 确认网络连通。</p>
+      <h3>怎么控制成本？</h3>
+      <p>① 从团队版小规模起步 ② 开启消费提醒 ③ 简单任务用更小的模型 ④ 定期查看用量：<code>metacode usage --month</code></p>
+      <h3>MetaCode 安全吗？</h3>
+      <p>提供多层防护：沙箱隔离、命令审批、网络管控、审计日志。</p>
+      <h3>可以离线使用吗？</h3>
+      <p>可以配置本地模型，但功能可能会受到限制。</p>
+      <h3>如何获取技术支持？</h3>
+      <p>访问官方支持中心，或发送邮件给客服。</p>
+    </section>
+
+    <!-- 视频 -->
+    <section id="tutorials">
+      <h1>视频教程</h1>
+      <div class="cal note"><b>📹 即将上线</b>配套视频教程正在制作中，敬请期待。</div>
+      <div class="cards c2">
+        <div class="card"><div class="ct">⬇️ 安装教程</div><div class="cd">macOS / Windows 安装演示</div></div>
+        <div class="card"><div class="ct">🔑 账号配置</div><div class="cd">API Key 配置指南</div></div>
+        <div class="card"><div class="ct">▶️ 第一次使用</div><div class="cd">首次上手演示</div></div>
+        <div class="card"><div class="ct">💡 6 大案例讲解</div><div class="cd">六个真实案例完整演示</div></div>
+      </div>
+    </section>
+
+    <!-- 术语表 -->
+    <section id="glossary">
+      <h1>术语表</h1>
+      <table>
+        <tr><th>术语</th><th>含义</th></tr>
+        <tr><td>会话（Session）</td><td>与 MetaCode 的一次对话</td></tr>
+        <tr><td>沙箱（Sandbox）</td><td>隔离的安全执行环境</td></tr>
+        <tr><td>MCP</td><td>让 AI 调用外部工具的协议</td></tr>
+        <tr><td>技能（Skill）</td><td>预先定义好的任务模板</td></tr>
+        <tr><td>智能体（Agent）</td><td>独立执行子任务的智能单元</td></tr>
+        <tr><td>Token</td><td>AI 的计算单位，影响成本</td></tr>
+        <tr><td>API Key</td><td>访问服务的凭证</td></tr>
+        <tr><td>AGENTS.md</td><td>项目级的指令文件</td></tr>
+      </table>
+      <p class="muted" style="margin-top:30px">最后更新：2026 年 6 月 7 日 · 内容整理自 MetaCode 官方产品介绍页</p>
+    </section>
+  </main>
+</div>
+
+<a href="#" class="topbtn" title="回到顶部">↑</a>
+
+<script>
+  // 高亮当前阅读到的章节
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.side a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){l.classList.remove('active');});
+        var id = e.target.getAttribute('id');
+        if(map[id]) map[id].classList.add('active');
+      }
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  document.querySelectorAll('main section').forEach(function(s){obs.observe(s);});
+</script>
+</body>
+</html>

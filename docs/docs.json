@@ -1,0 +1,88 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "MetaCode",
+  "description": "MetaCode 产品介绍与上手指南 —— 懂你需求、能读写文件、会跑命令的 AI 工作助手。",
+  "colors": {
+    "primary": "#10B981",
+    "light": "#34D399",
+    "dark": "#059669"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "groups": [
+      {
+        "group": "开始使用",
+        "pages": [
+          "index",
+          "quickstart",
+          "first-use",
+          "why-metacode"
+        ]
+      },
+      {
+        "group": "核心概念",
+        "pages": [
+          "concepts",
+          "features",
+          "glossary"
+        ]
+      },
+      {
+        "group": "真实案例",
+        "pages": [
+          "use-cases"
+        ]
+      },
+      {
+        "group": "企业与团队",
+        "pages": [
+          "enterprise",
+          "team",
+          "security"
+        ]
+      },
+      {
+        "group": "价格与帮助",
+        "pages": [
+          "pricing",
+          "faq",
+          "tutorials"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "注册",
+        "href": "https://napi.origintask.cn/register"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "立即安装",
+      "href": "https://napi.origintask.cn/register"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://metask.ai",
+      "github": "https://github.com/metask/metacode"
+    },
+    "links": [
+      {
+        "header": "资源",
+        "items": [
+          { "label": "官方网站", "href": "https://metask.ai" },
+          { "label": "文档", "href": "https://docs.metask.ai" },
+          { "label": "GitHub", "href": "https://github.com/metask/metacode" }
+        ]
+      }
+    ]
+  }
+}

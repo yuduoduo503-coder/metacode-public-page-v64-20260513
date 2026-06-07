@@ -1,0 +1,112 @@
+---
+title: "快速上手"
+description: "注册账号、安装 MetaCode、完成授权，几分钟即可开始使用。"
+---
+
+只需三步即可开始：**注册 → 安装 → 授权**。授权成功后无需额外配置，直接使用。
+
+## 第一步：注册账号
+
+MetaCode 通过「元任务 AI 网关」注册。
+
+<Steps>
+  <Step title="打开注册页面">
+    访问 [https://napi.origintask.cn/register](https://napi.origintask.cn/register)
+  </Step>
+  <Step title="用邮箱注册">
+    填写邮箱，完成邮箱验证。
+  </Step>
+  <Step title="设置密码">
+    设置登录密码，看到注册成功提示后即可进行安装。
+  </Step>
+</Steps>
+
+## 第二步：安装
+
+根据你的系统，选择对应的安装方式。
+
+<Tabs>
+  <Tab title="Windows">
+    <Steps>
+      <Step title="以管理员身份打开 PowerShell">
+        右键点击「开始」菜单，选择「Windows PowerShell（管理员）」。
+      </Step>
+      <Step title="运行安装命令">
+        ```powershell
+        irm https://napi.origintask.cn/install/metacode | iex
+        ```
+      </Step>
+      <Step title="完成授权">
+        浏览器会自动打开授权页面，点击「立即授权」。
+      </Step>
+      <Step title="回到终端确认">
+        返回终端，看到成功提示即代表授权完成。
+      </Step>
+      <Step title="验证安装">
+        ```powershell
+        metacode --version
+        ```
+        看到版本号即安装成功。
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="macOS / Linux">
+    <Steps>
+      <Step title="打开终端">
+        macOS：按 `Cmd + 空格`，搜索「终端 / Terminal」并打开。
+      </Step>
+      <Step title="运行安装命令">
+        ```bash
+        curl -fsSL https://napi.origintask.cn/install/metacode | sh
+        ```
+      </Step>
+      <Step title="完成授权">
+        浏览器会自动打开授权页面，点击「立即授权」。
+      </Step>
+      <Step title="回到终端确认">
+        返回终端，看到成功提示即代表授权完成。
+      </Step>
+      <Step title="验证安装">
+        ```bash
+        metacode --version
+        ```
+        看到版本号即安装成功。
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Check>
+  授权成功后，无需额外配置，可直接开始使用。
+</Check>
+
+## 版本升级
+
+<AccordionGroup>
+  <Accordion title="自动更新" icon="rotate">
+    MetaCode 启动时会自动检查更新，有新版本时会提示你升级。
+  </Accordion>
+  <Accordion title="手动升级" icon="download">
+    重新运行安装命令即可升级到最新版：
+
+    <CodeGroup>
+    ```powershell Windows
+    irm https://napi.origintask.cn/install/metacode | iex
+    ```
+
+    ```bash macOS / Linux
+    curl -fsSL https://napi.origintask.cn/install/metacode | sh
+    ```
+    </CodeGroup>
+
+    升级完成后，重新启动：
+
+    ```bash
+    metacode
+    ```
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  装好之后，前往 [第一次使用](/first-use) 跑通你的第一个任务。
+</Tip>

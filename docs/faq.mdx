@@ -1,0 +1,53 @@
+---
+title: "常见问题"
+description: "安装、配置、成本、安全、离线、技术支持等常见疑问。"
+---
+
+<AccordionGroup>
+  <Accordion title="安装失败怎么办？" icon="triangle-exclamation">
+    1. 确认系统要求（macOS 10.15+ / Windows 10+）
+    2. 检查网络连接
+    3. 确认拥有管理员权限
+    4. 查看详细报错：
+
+    ```bash
+    metacode --verbose
+    ```
+  </Accordion>
+
+  <Accordion title="API Key 配置失败？" icon="key">
+    1. 确认完整复制，没有多余空格
+    2. 检查密钥是否过期，必要时重新生成
+    3. 确认网络连通
+  </Accordion>
+
+  <Accordion title="怎么控制成本？" icon="coins">
+    1. 从团队版小规模起步
+    2. 开启消费提醒
+    3. 简单任务用更小的模型
+    4. 定期查看用量：
+
+    ```bash
+    metacode usage --month
+    ```
+  </Accordion>
+
+  <Accordion title="MetaCode 安全吗？" icon="shield">
+    提供多层防护：
+
+    - **沙箱隔离**：隔离环境执行
+    - **命令审批**：危险命令需确认
+    - **网络管控**：可限制访问
+    - **审计日志**：所有操作可追溯
+
+    详见 [安全与隐私](/security)。
+  </Accordion>
+
+  <Accordion title="可以离线使用吗？" icon="wifi">
+    可以配置本地模型，但功能可能会受到限制。
+  </Accordion>
+
+  <Accordion title="如何获取技术支持？" icon="headset">
+    访问官方支持中心，或发送邮件给客服。
+  </Accordion>
+</AccordionGroup>

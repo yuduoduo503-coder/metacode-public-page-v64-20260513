@@ -1,0 +1,54 @@
+---
+title: "功能详解"
+description: "代码理解、代码编写、Git 集成、多智能体协作、自动化与非交互模式。"
+---
+
+## 代码理解与分析
+
+读取项目文件，理解结构，发现 Bug，提出优化建议。
+
+<Accordion title="示例：页面加载慢" icon="gauge-high">
+  用户反馈页面加载慢 → MetaCode 定位到未优化的图片加载函数，建议改用懒加载，预计提速 40%。
+</Accordion>
+
+## 代码编写与修改
+
+根据需求新建文件、修改现有代码、重构结构。
+
+<Accordion title="示例：用户注册功能" icon="user-plus">
+  用户要求做一个注册功能 → MetaCode 生成 `register.js` / `register.html`，包含表单校验、bcrypt 加密和错误提示。
+</Accordion>
+
+## Git 集成
+
+深度集成：查看状态、提交、推送、分支管理、解决冲突。
+
+<Accordion title="示例：提交历史与新建分支" icon="code-branch">
+  用户询问提交历史并要求新建功能分支 → MetaCode 展示近期提交，并创建并切换到 `feature/login` 分支。
+</Accordion>
+
+## 多智能体协作
+
+复杂任务拆分给多个智能体并行处理，速度更快。
+
+<Accordion title="示例：系统重构" icon="users-gear">
+  系统重构 → 多个智能体同时处理（数据库层、API 层、前端组件、测试），比单个智能体快约 4 倍。
+</Accordion>
+
+## 自动化与定时任务
+
+支持定时执行、CI/CD 集成、基于 Hook 的自动化。
+
+<Accordion title="示例：每日销售报表" icon="clock">
+  每天 09:00 自动生成销售报表，并自动邮件发送结果。
+</Accordion>
+
+## 非交互模式
+
+一次性执行命令、支持管道输入，方便接入脚本和 CI。
+
+```bash
+metacode exec "修复所有 TODO 注释"
+
+echo "优化数据库" | metacode exec
+```
