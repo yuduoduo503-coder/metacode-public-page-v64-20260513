@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MetaCode 产品介绍与上手指南</title>
+<title>MetaCode 产品介绍与上手指南 v6.5</title>
 <style>
   :root{
     --blue:#2563EB; --blue-d:#1E40AF; --blue-l:#3b82f6;
@@ -226,12 +226,14 @@
         
         <div class="nav-section">🛠️ 快速上手（重点）</div>
         <ul class="nav-list">
-            <li class="nav-item" data-target="install">安装 MetaCode</li>
-            <li class="nav-item sub" data-target="install-mac">→ macOS 安装</li>
+            <li class="nav-item" data-target="register">注册元任务AI网关</li>
+            <li class="nav-item sub" data-target="register-step">→ 打开注册页面</li>
+            <li class="nav-item sub" data-target="register-form">→ 填写注册信息</li>
+            <li class="nav-item sub" data-target="register-done">→ 注册成功</li>
+            <li class="nav-item" data-target="install">快速安装与授权</li>
             <li class="nav-item sub" data-target="install-win">→ Windows 安装</li>
-            <li class="nav-item" data-target="api-key">配置 API Key</li>
-            <li class="nav-item sub" data-target="api-key-step">→ 获取 Key 步骤</li>
-            <li class="nav-item sub" data-target="api-key-config">→ 配置到本地</li>
+            <li class="nav-item sub" data-target="install-mac">→ macOS / Linux 安装</li>
+            <li class="nav-item" data-target="upgrade">版本升级</li>
             <li class="nav-item" data-target="first-use">第一次使用</li>
         </ul>
         
@@ -457,16 +459,89 @@
             </table>
         </section>
         
-        <!-- 4. 安装 MetaCode -->
-        <section id="install" class="section">
-            <h2>4. 安装 MetaCode ⭐（新手必看）</h2>
+        <!-- 4. 注册元任务AI网关 -->
+        <section id="register" class="section">
+            <h2>4. 注册元任务AI网关 ⭐（新手必看）</h2>
             
             <div class="tip">
-                <div class="tip-title">💡 安装前检查</div>
-                <p>确保你的电脑满足：macOS 10.15+ / Windows 10+、网络正常、至少有 2GB 可用空间</p>
+                <div class="tip-title">🚀 第一步：先注册账号</div>
+                <p>使用 MetaCode 前需要先注册元任务AI网关账号。</p>
             </div>
             
-            <h3 id="install-mac">4.1 macOS 安装</h3>
+            <h3 id="register-step">4.1 打开注册页面</h3>
+            
+            <div class="step" data-step="第一步">
+                <h4>打开注册页面</h4>
+                <div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <code style="font-size: 1rem;">https://napi.origintask.cn/register</code>
+                    <br><br>
+                    <a href="https://napi.origintask.cn/register" target="_blank" style="color: var(--blue); font-weight: 600;">→ 点击打开注册页面</a>
+                </div>
+            </div>
+            
+            <h3 id="register-form">4.2 填写注册信息</h3>
+            
+            <div class="step" data-step="第二步">
+                <h4>填写注册信息</h4>
+                <p>使用邮箱进行注册，填写邮箱地址和密码，完成邮箱验证。</p>
+                <p><img src="API配置-邮箱注册.png" alt="邮箱注册" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <h3 id="register-done">4.3 注册成功</h3>
+            
+            <div class="step" data-step="第三步">
+                <h4>注册成功</h4>
+                <p>注册成功后即可使用元任务AI网关。接下来运行安装命令即可。</p>
+                <p><img src="metacode-注册成功.png" alt="注册成功" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="success-tip">
+                <div class="tip-title">✅ 注册完成！</div>
+                现在可以运行安装命令完成 MetaCode 的安装和授权
+            </div>
+        </section>
+        
+        <!-- 5. 快速安装与授权 -->
+        <section id="install" class="section">
+            <h2>5. 快速安装与授权 ⭐（新手必看）</h2>
+            
+            <div class="tip">
+                <div class="tip-title">🚀 第二步：安装并授权</div>
+                <p>注册账号后，运行一行命令即可完成安装，浏览器自动弹出授权页面，点击授权即可使用！</p>
+            </div>
+            
+            <h3 id="install-win">5.1 Windows 安装</h3>
+            
+            <div class="step" data-step="第一步">
+                <h4>打开 PowerShell（管理员）</h4>
+                <p>右键开始菜单 → 选择"Windows PowerShell(管理员)"</p>
+            </div>
+            
+            <div class="step" data-step="第二步">
+                <h4>运行安装命令</h4>
+                <pre><code>irm https://napi.origintask.cn/install/metacode | iex</code></pre>
+                <p>安装程序会自动打开浏览器进行授权。</p>
+            </div>
+            
+            <div class="step" data-step="第三步">
+                <h4>在浏览器中完成授权</h4>
+                <p>浏览器会自动打开元任务AI网关授权页面，点击"立即授权"按钮完成授权。</p>
+                <p><img src="metacode-安装授权页面.png" alt="安装授权页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="第四步">
+                <h4>返回终端查看授权结果</h4>
+                <p>授权成功后，终端会显示"✅ 授权成功"提示。</p>
+                <p><img src="metacode-认证完成.png" alt="认证完成" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="验证">
+                <h4>验证安装成功</h4>
+                <pre><code>metacode --version</code></pre>
+                <p>看到版本号即表示安装成功！现在可以直接使用 <code>metacode</code> 命令。</p>
+            </div>
+            
+            <h3 id="install-mac">5.2 macOS / Linux 安装</h3>
             
             <div class="step" data-step="第一步">
                 <h4>打开终端</h4>
@@ -475,117 +550,67 @@
             
             <div class="step" data-step="第二步">
                 <h4>运行安装命令</h4>
-                <pre><code>curl -fsSL https://metacode.pages.dev/install.sh | sh</code></pre>
-                <div class="important-tip">
-                    <div class="tip-title">💡 提示</div>
-                    <p>安装过程中可能需要输入电脑密码（输入时看不见字符是正常的）。安装完成后会自动验证。</p>
-                </div>
-            </div>
-            
-            <div class="step" data-step="验证">
-                <h4>验证安装</h4>
-                <pre><code>metacode --version</code></pre>
-                <p>看到版本号（如 <code>metacode v0.2.1</code>）表示成功！</p>
-            </div>
-            
-            <h3 id="install-win">4.2 Windows 安装</h3>
-            
-            <div class="step" data-step="第一步">
-                <h4>打开 PowerShell</h4>
-                <p>右键开始菜单 → 选择"Windows PowerShell(管理员)"</p>
-            </div>
-            
-            <div class="step" data-step="第二步">
-                <h4>运行安装命令</h4>
-                <pre><code>irm https://metacode.pages.dev/install.ps1 | iex</code></pre>
+                <pre><code>curl -fsSL https://napi.origintask.cn/install/metacode | sh</code></pre>
+                <p>安装程序会自动打开浏览器进行授权。</p>
             </div>
             
             <div class="step" data-step="第三步">
-                <h4>验证安装</h4>
+                <h4>在浏览器中完成授权</h4>
+                <p>浏览器会自动打开元任务AI网关授权页面，点击"立即授权"按钮完成授权。</p>
+                <p><img src="metacode-安装授权页面.png" alt="安装授权页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="第四步">
+                <h4>返回终端查看授权结果</h4>
+                <p>授权成功后，终端会显示"✅ 授权成功"提示。</p>
+                <p><img src="metacode-认证完成.png" alt="认证完成" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="验证">
+                <h4>验证安装成功</h4>
                 <pre><code>metacode --version</code></pre>
+                <p>看到版本号即表示安装成功！现在可以直接使用 <code>metacode</code> 命令。</p>
             </div>
             
             <div class="success-tip">
-                <div class="tip-title">✅ 安装成功！</div>
-                接下来配置 API Key 就可以开始使用了
+                <div class="tip-title">✅ 安装完成！</div>
+                授权成功后直接使用，无需任何额外配置
             </div>
         </section>
         
-        <!-- 5. API Key 配置 -->
-        <section id="api-key" class="section">
-            <h2>5. 配置 API Key ⭐（新手必看）</h2>
+        <!-- 6. 版本升级 -->
+        <section id="upgrade" class="section">
+            <h2>6. 版本升级</h2>
             
-            <div class="card">
-                <p><strong>API Key 是什么？</strong> 就像你的"身份证号"，让 MetaCode 知道是谁在使用服务。没有它，MetaCode 无法连接 AI 服务。</p>
+            <div class="tip">
+                <div class="tip-title">💡 自动与手动升级</div>
+                <p>MetaCode 会自动检查更新，也支持手动升级到最新版本。</p>
             </div>
             
-            <h3 id="api-key-step">5.1 获取 API Key</h3>
+            <h3>6.1 自动升级</h3>
+            <p>启动 MetaCode 时会自动检测新版本，如有更新会提示升级。</p>
             
-            <div class="step" data-step="1.1">
-                <h4>打开 API Key 获取页面</h4>
-                <p>复制下面网址到浏览器打开：</p>
-                <div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                    <code style="font-size: 1rem;">https://napi.origintask.cn/keys/generatormckey</code>
-                    <br><br>
-                    <a href="https://napi.origintask.cn/keys/generatormckey" target="_blank" style="display: inline-block; background: #667eea; color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none;">👉 点击直接打开</a>
-                </div>
-                <p><img src="API配置-打开网页链接.png" alt="API Key 获取页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            <h3>6.2 手动升级</h3>
+            
+            <div class="step" data-step="Windows">
+                <h4>Windows (PowerShell)</h4>
+                <pre><code>irm https://napi.origintask.cn/install/metacode | iex</code></pre>
             </div>
             
-            <div class="step" data-step="1.2">
-                <h4>注册或登录账号</h4>
-                <p>如果没有账号，点击"注册"；如果已有账号，点击"登录"。</p>
-                <p><img src="API配置-注册页截图.png" alt="注册页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-                <p><img src="API配置-邮箱注册.png" alt="邮箱注册" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <div class="step" data-step="1.3">
-                <h4>创建 API Key</h4>
-                <p>登录后，点击"创建"或"Generate"按钮。</p>
-                <p><img src="API配置-创建密钥.png" alt="创建密钥" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-                <p>填写 Key 名称（如"我的电脑"），选择类型和过期时间，然后点击创建。</p>
-                <p><img src="API配置-创建密钥-配置分组.png" alt="配置分组" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <div class="step" data-step="1.4">
-                <h4>复制 API Key</h4>
-                <p>创建成功后，页面会显示一串密钥（以 <code>sk-</code> 开头）。复制保存好。</p>
-                <p><img src="API配置-key获取.png" alt="获取 Key" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <h3 id="api-key-config">5.2 配置到本地</h3>
-            
-            <div class="step" data-step="2.1">
-                <h4>打开终端</h4>
-                <p>运行配置命令：</p>
-                <pre><code>metacode config</code></pre>
-            </div>
-            
-            <div class="step" data-step="2.2">
-                <h4>粘贴 API Key</h4>
-                <p>终端提示输入时，粘贴（<code>Ctrl + V</code> 或 <code>Command + V</code>）刚才复制的 Key，按回车。</p>
-            </div>
-            
-            <div class="step" data-step="2.3">
-                <h4>验证配置成功</h4>
-                <pre><code>metacode exec --ephemeral --skip-git-repo-check "你好，请回复测试成功"</code></pre>
-                <p>如果 MetaCode 回复了"测试成功"，说明配置正确！</p>
-            </div>
-            
-            <div class="success-tip">
-                <div class="tip-title">✅ 完成！</div>
-                配置只做一次，以后直接运行 <code>metacode</code> 就能用。
+            <div class="step" data-step="macOS/Linux">
+                <h4>macOS / Linux</h4>
+                <pre><code>curl -fsSL https://napi.origintask.cn/install/metacode | sh</code></pre>
             </div>
         </section>
         
-        <!-- 6. 第一次使用 -->
+        <!-- 7. 第一次使用 -->
         <section id="first-use" class="section">
-            <h2>6. 第一次使用</h2>
+            <h2>7. 第一次使用</h2>
             
-            <h3>6.1 启动 MetaCode</h3>
+            <h3>7.1 启动 MetaCode</h3>
             <pre><code>metacode</code></pre>
             
-            <h3>6.2 试试这些简单任务</h3>
+            <h3>7.2 试试这些简单任务</h3>
             <div class="card-grid">
                 <div class="card-item">
                     <h4>📝 写一封信</h4>
@@ -601,7 +626,7 @@
                 </div>
             </div>
             
-            <h3>6.3 快捷键</h3>
+            <h3>7.3 快捷键</h3>
             <table>
                 <thead>
                     <tr><th>快捷键</th><th>功能</th></tr>
@@ -619,14 +644,14 @@
         
         <!-- 8. 核心概念 -->
         <section id="concepts" class="section">
-            <h2>7. 核心概念详解</h2>
+            <h2>8. 核心概念详解</h2>
             
-            <h3 id="concept-session">7.1 会话（Session）</h3>
+            <h3 id="concept-session">8.1 会话（Session）</h3>
             <div class="card">
                 <strong>类比：</strong>会话就像你和 MetaCode 的"对话记录本"。下次可以继续这个话题，也可以基于之前的状态开新分支。
             </div>
             
-            <h3 id="concept-sandbox">7.2 沙箱（Sandbox）</h3>
+            <h3 id="concept-sandbox">8.2 沙箱（Sandbox）</h3>
             <div class="card">
                 <strong>类比：</strong>沙箱就像 MetaCode 的"游戏房"。它只能在特定区域活动，不能碰外面的东西。
             </div>
@@ -641,12 +666,12 @@
                 </tbody>
             </table>
             
-            <h3 id="concept-mcp">7.3 MCP（工具连接）</h3>
+            <h3 id="concept-mcp">8.3 MCP（工具连接）</h3>
             <div class="card">
                 <strong>类比：</strong>MCP 就像 MetaCode 的"万能插头"，让它能连接 GitHub、数据库等各种工具。
             </div>
             
-            <h3 id="concept-skill">7.4 Skill（技能模板）</h3>
+            <h3 id="concept-skill">8.4 Skill（技能模板）</h3>
             <div class="card">
                 <strong>类比：</strong>Skill 就像餐厅的"套餐"。不问你要怎么炒菜，而是问你想要什么套餐，按标准流程做好。
             </div>
@@ -673,9 +698,9 @@
         
         <!-- 8. 功能详解 -->
         <section id="features" class="section">
-            <h2>8. 功能详解</h2>
+            <h2>9. 功能详解</h2>
             
-            <h3>8.1 代码理解与分析</h3>
+            <h3>9.1 代码理解与分析</h3>
             <div class="card">
                 <p>MetaCode 能读取项目中的所有文件，理解代码结构和上下文，找出 Bug、提出优化建议。</p>
             </div>
@@ -688,7 +713,7 @@
                 <div class="sim-text">"我分析了项目结构，发现 `index.js` 中有一个未优化的图片加载函数。建议在 `App.vue` 中使用懒加载，并将首屏不需要的图片延迟到滚动时再加载。优化后预计提升 40% 首屏加载速度。"</div>
             </div>
             
-            <h3>8.2 代码编写与修改</h3>
+            <h3>9.2 代码编写与修改</h3>
             <div class="card">
                 <p>描述需求，它帮你创建新文件、修改现有代码、重构代码结构。</p>
             </div>
@@ -701,7 +726,7 @@
                 <div class="sim-text">"已创建 `register.js` 和 `register.html`。<br>✅ 表单验证：邮箱格式、手机号、密码强度<br>✅ 密码加密：bcrypt 加密存储<br>✅ 错误提示：中文友好提示<br>✅ 样式：简洁现代的表单样式"</div>
             </div>
             
-            <h3>8.3 Git 集成</h3>
+            <h3>9.3 Git 集成</h3>
             <div class="card">
                 <p>MetaCode 深度集成 Git：状态查看、提交、推送、分支管理、冲突解决。</p>
             </div>
@@ -714,7 +739,7 @@
                 <div class="sim-text">"📋 最近 3 次提交：<br>• abc123 - 修复导航栏样式<br>• def456 - 添加用户头像组件<br>• ghi789 - 优化首页加载速度<br><br>✅ 已创建并切换到新分支 `feature/login`"</div>
             </div>
             
-            <h3>8.4 多 Agent 协作</h3>
+            <h3>9.4 多 Agent 协作</h3>
             <div class="card">
                 <p>复杂任务可以拆分成多个子任务，由不同的 Agent 并行处理。</p>
             </div>
@@ -756,7 +781,7 @@
         
         <!-- 10. 企业版介绍 -->
         <section id="enterprise" class="section">
-            <h2>9. 企业版介绍 ⭐（管理层必看）</h2>
+            <h2>10. 企业版介绍 ⭐（管理层必看）</h2>
             
             <div class="highlight-card highlight-card-blue">
                 <h3>企业版核心价值</h3>
@@ -802,9 +827,9 @@
         
         <!-- 11. 安全与隐私 -->
         <section id="security" class="section">
-            <h2>10. 安全与隐私 ⭐</h2>
+            <h2>11. 安全与隐私 ⭐</h2>
             
-            <h3>10.1 多层安全防护</h3>
+            <h3>11.1 多层安全防护</h3>
             <div class="card-grid">
                 <div class="card-item">
                     <h4>🛡️ 沙箱隔离</h4>
@@ -824,7 +849,7 @@
                 </div>
             </div>
             
-            <h3>10.2 数据安全保障</h3>
+            <h3>11.2 数据安全保障</h3>
             <div class="card">
                 <ul style="padding-left: 20px;">
                     <li><strong>本地处理</strong>：敏感代码可本地处理，不上传云端</li>
@@ -837,9 +862,9 @@
         
         <!-- 12. 团队协作 -->
         <section id="team" class="section">
-            <h2>11. 团队协作</h2>
+            <h2>12. 团队协作</h2>
             
-            <h3>11.1 团队配置</h3>
+            <h3>12.1 团队配置</h3>
             <div class="card">
                 <p>企业版支持：</p>
                 <ul style="padding-left: 20px;">
@@ -850,7 +875,7 @@
                 </ul>
             </div>
             
-            <h3>11.2 团队知识库价值</h3>
+            <h3>12.2 团队知识库价值</h3>
             <div class="card">
                 <ul style="padding-left: 20px;">
                     <li><strong>经验传承</strong>：把专家经验固化为可复用模板</li>
@@ -862,7 +887,7 @@
         
         <!-- 12. 定价套餐 -->
         <section id="pricing" class="section">
-            <h2>12. 定价套餐</h2>
+            <h2>13. 定价套餐</h2>
             
             <h3>VIP 等级体系（钱包储值）</h3>
             <p>按滚动 12 个月累计消费分级，等级取决于过去 12 个月内的累计充值。</p>
@@ -954,7 +979,7 @@
         
         <!-- 14. 6 大案例 -->
         <section id="cases" class="section">
-            <h2>13. 6 大真实案例</h2>
+            <h2>14. 6 大真实案例</h2>
             
             <p>以下是真实用户的使用场景，看看 MetaCode 能帮你做什么 —— 全部用"大白话"提需求，不用懂任何技术。</p>
             
@@ -1359,7 +1384,7 @@
         
         <!-- 15. 视频教程 -->
         <section id="video" class="section">
-            <h2>14. 视频教程 📹</h2>
+            <h2>15. 视频教程 📹</h2>
             
             <div class="video-placeholder">
                 <div class="icon">🎬</div>
@@ -1378,7 +1403,7 @@
         
         <!-- 16. 常见问题 -->
         <section id="faq" class="section">
-            <h2>15. 常见问题（FAQ）</h2>
+            <h2>16. 常见问题（FAQ）</h2>
             
             <div class="faq-item">
                 <div class="faq-question">❓ 安装失败怎么办？</div>
@@ -1445,7 +1470,7 @@
         
         <!-- 17. 术语表 -->
         <section id="glossary" class="section">
-            <h2>16. 术语表</h2>
+            <h2>17. 术语表</h2>
             
             <table>
                 <thead>
@@ -1466,7 +1491,7 @@
         
         <!-- 页脚 -->
         <div class="footer">
-            <p>本文档最后更新于 2026年6月3日 | 版本：v4.1</p>
+            <p>本文档最后更新于 2026年6月7日 | 版本：v6.5（新增一键安装授权链路）</p>
             <p>相关资源：<a href="https://metask.ai" target="_blank">官网</a> | <a href="https://docs.metask.ai" target="_blank">文档</a> | <a href="https://github.com/metask/metacode" target="_blank">GitHub</a></p>
         </div>
     </main>
