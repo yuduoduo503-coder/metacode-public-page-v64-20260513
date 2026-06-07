@@ -597,14 +597,24 @@
             
             <h3>6.2 手动升级</h3>
             
-            <div class="step" data-step="Windows">
-                <h4>Windows (PowerShell)</h4>
+            <div class="step" data-step="第一步">
+                <h4>运行升级命令</h4>
+                <p><strong>Windows (PowerShell)</strong></p>
                 <pre><code>irm https://napi.origintask.cn/install/metacode | iex</code></pre>
+                <p style="margin-top:12px;"><strong>macOS / Linux</strong></p>
+                <pre><code>curl -fsSL https://napi.origintask.cn/install/metacode | sh</code></pre>
             </div>
             
-            <div class="step" data-step="macOS/Linux">
-                <h4>macOS / Linux</h4>
-                <pre><code>curl -fsSL https://napi.origintask.cn/install/metacode | sh</code></pre>
+            <div class="step" data-step="第二步">
+                <h4>升级完成</h4>
+                <p>升级完成后，终端会显示升级成功信息。</p>
+                <p><img src="metacode-升级完成.png" alt="升级完成" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="第三步">
+                <h4>重启进入 MetaCode</h4>
+                <p>升级完成后，运行 <code>metacode</code> 命令重启进入使用。</p>
+                <pre><code>metacode</code></pre>
             </div>
         </section>
         
