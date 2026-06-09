@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MetaCode 产品介绍与上手指南 v6.5</title>
+<title>MetaCode 产品介绍与上手指南 v.1</title>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     .icon { display: inline-flex; width: 1em; height: 1em; }
@@ -219,7 +219,7 @@
     <nav class="sidebar">
         <div class="sidebar-header">
             <h1><i data-lucide="rocket" class="icon"></i> MetaCode</h1>
-            <p>产品介绍与上手指南 v4.1</p>
+            <p>产品介绍与上手指南 v.1</p>
         </div>
         
         <div class="nav-section"><i data-lucide="book" class="icon"></i> 快速了解</div>
@@ -231,13 +231,14 @@
         
         <div class="nav-section"><i data-lucide="wrench" class="icon"></i>️ 快速上手（重点）</div>
         <ul class="nav-list">
-            <li class="nav-item" data-target="register">注册元任务AI网关</li>
-            <li class="nav-item sub" data-target="register-step">→ 打开注册页面</li>
-            <li class="nav-item sub" data-target="register-form">→ 填写注册信息</li>
-            <li class="nav-item sub" data-target="register-done">→ 注册成功</li>
             <li class="nav-item" data-target="install">快速安装与授权</li>
             <li class="nav-item sub" data-target="install-win">→ Windows 安装</li>
             <li class="nav-item sub" data-target="install-mac">→ macOS / Linux 安装</li>
+            <li class="nav-item" data-target="register">注册 / 授权（3种方式）</li>
+            <li class="nav-item sub" data-target="register-choice">→ 选择授权方式</li>
+            <li class="nav-item sub" data-target="register-web">→ 方式一：网页授权</li>
+            <li class="nav-item sub" data-target="register-api">→ 方式二：API Key 授权</li>
+            <li class="nav-item sub" data-target="register-device">→ 方式三：设备码授权</li>
             <li class="nav-item" data-target="upgrade">版本升级</li>
             <li class="nav-item" data-target="first-use">第一次使用</li>
         </ul>
@@ -281,8 +282,8 @@
             <h1>MetaCode 产品介绍与上手指南</h1>
             <p>企业统一 AI 工作台 —— 让每个人都能高效使用 AI</p>
             <div class="doc-meta">
-                <span><i data-lucide="calendar" class="icon"></i> 更新日期：2026年6月7日</span>
-                <span><i data-lucide="book-open" class="icon"></i> 版本：v4.1</span>
+                <span><i data-lucide="calendar" class="icon"></i> 更新日期：2026年6月9日</span>
+                <span><i data-lucide="book-open" class="icon"></i> 版本：v.1</span>
                 <span><i data-lucide="users" class="icon"></i> 适用：新手 / 有基础用户 / 管理层</span>
             </div>
             <div class="user-tags">
@@ -297,7 +298,7 @@
             <h4><i data-lucide="rocket" class="icon"></i> 快速跳转</h4>
             <div class="quick-nav-grid">
                 <a href="#install" class="quick-nav-item"><i data-lucide="download" class="icon"></i> 立即安装</a>
-                <a href="#api-key" class="quick-nav-item"><i data-lucide="key" class="icon"></i> 配置 Key</a>
+                <a href="#register" class="quick-nav-item"><i data-lucide="key" class="icon"></i> 注册 / 授权</a>
                 <a href="#first-use" class="quick-nav-item">✨ 第一次用</a>
                 <a href="#cases" class="quick-nav-item"><i data-lucide="clipboard" class="icon"></i> 看案例</a>
                 <a href="#pricing" class="quick-nav-item"><i data-lucide="credit-card" class="icon"></i> 看价格</a>
@@ -450,7 +451,7 @@
                 <tbody>
                     <tr>
                         <td><i data-lucide="user" class="icon"></i> 零基础新手</td>
-                        <td>安装 → API Key 配置 → 第一次使用 → 看案例</td>
+                        <td>安装 → 注册/授权 → 第一次使用 → 看案例</td>
                     </tr>
                     <tr>
                         <td><i data-lucide="laptop" class="icon"></i> 有基础用户</td>
@@ -464,58 +465,16 @@
             </table>
         </section>
         
-        <!-- 4. 注册元任务AI网关 -->
-        <section id="register" class="section">
-            <h2>4. 注册元任务AI网关 <i data-lucide="star" class="icon" style="color:var(--amber)"></i>（新手必看）</h2>
-            
-            <div class="tip">
-                <div class="tip-title"><i data-lucide="rocket" class="icon"></i> 第一步：先注册账号</div>
-                <p>使用 MetaCode 前需要先注册元任务AI网关账号。</p>
-            </div>
-            
-            <h3 id="register-step">4.1 打开注册页面</h3>
-            
-            <div class="step" data-step="第一步">
-                <h4>打开注册页面</h4>
-                <div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                    <code style="font-size: 1rem;">https://napi.origintask.cn/register</code>
-                    <br><br>
-                    <a href="https://napi.origintask.cn/register" target="_blank" style="color: var(--blue); font-weight: 600;">→ 点击打开注册页面</a>
-                </div>
-            </div>
-            
-            <h3 id="register-form">4.2 填写注册信息</h3>
-            
-            <div class="step" data-step="第二步">
-                <h4>填写注册信息</h4>
-                <p>使用邮箱进行注册，填写邮箱地址和密码，完成邮箱验证。</p>
-                <p><img src="API配置-邮箱注册.png" alt="邮箱注册" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <h3 id="register-done">4.3 注册成功</h3>
-            
-            <div class="step" data-step="第三步">
-                <h4>注册成功</h4>
-                <p>注册成功后即可使用元任务AI网关。接下来运行安装命令即可。</p>
-                <p><img src="metacode-注册成功.png" alt="注册成功" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <div class="success-tip">
-                <div class="tip-title"><i data-lucide="check" class="icon" style="color:var(--green)"></i> 注册完成！</div>
-                现在可以运行安装命令完成 MetaCode 的安装和授权
-            </div>
-        </section>
-        
-        <!-- 5. 快速安装与授权 -->
+        <!-- 4. 快速安装 -->
         <section id="install" class="section">
-            <h2>5. 快速安装与授权 <i data-lucide="star" class="icon" style="color:var(--amber)"></i>（新手必看）</h2>
+            <h2>4. 快速安装 <i data-lucide="star" class="icon" style="color:var(--amber)"></i>（新手必看）</h2>
             
             <div class="tip">
-                <div class="tip-title"><i data-lucide="rocket" class="icon"></i> 第二步：安装并授权</div>
-                <p>注册账号后，运行一行命令即可完成安装，浏览器自动弹出授权页面，点击授权即可使用！</p>
+                <div class="tip-title"><i data-lucide="rocket" class="icon"></i> 第一步：先安装 MetaCode</div>
+                <p>安装方式不变，依旧是复制一行命令执行。安装完成后，再按提示选择一种注册 / 授权方式即可。</p>
             </div>
             
-            <h3 id="install-win">5.1 Windows 安装</h3>
+            <h3 id="install-win">4.1 Windows 安装</h3>
             
             <div class="step" data-step="第一步">
                 <h4>打开 PowerShell（管理员）</h4>
@@ -525,28 +484,16 @@
             <div class="step" data-step="第二步">
                 <h4>运行安装命令</h4>
                 <pre><code>irm https://napi.origintask.cn/install/metacode | iex</code></pre>
-                <p>安装程序会自动打开浏览器进行授权。</p>
+                <p>复制后直接运行即可，安装完成后会继续引导你进入注册 / 授权流程。</p>
             </div>
             
             <div class="step" data-step="第三步">
-                <h4>在浏览器中完成授权</h4>
-                <p>浏览器会自动打开元任务AI网关授权页面，点击"立即授权"按钮完成授权。</p>
-                <p><img src="metacode-安装授权页面.png" alt="安装授权页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <div class="step" data-step="第四步">
-                <h4>返回终端查看授权结果</h4>
-                <p>授权成功后，终端会显示"<i data-lucide="check" class="icon" style="color:var(--green)"></i> 授权成功"提示。</p>
-                <p><img src="metacode-认证完成.png" alt="认证完成" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <div class="step" data-step="验证">
                 <h4>验证安装成功</h4>
                 <pre><code>metacode --version</code></pre>
-                <p>看到版本号即表示安装成功！现在可以直接使用 <code>metacode</code> 命令。</p>
+                <p>看到版本号即表示安装成功，接下来进入下一节完成注册 / 授权。</p>
             </div>
-            
-            <h3 id="install-mac">5.2 macOS / Linux 安装</h3>
+
+            <h3 id="install-mac">4.2 macOS / Linux 安装</h3>
             
             <div class="step" data-step="第一步">
                 <h4>打开终端</h4>
@@ -556,30 +503,149 @@
             <div class="step" data-step="第二步">
                 <h4>运行安装命令</h4>
                 <pre><code>curl -fsSL https://napi.origintask.cn/install/metacode | sh</code></pre>
-                <p>安装程序会自动打开浏览器进行授权。</p>
+                <p>复制后直接运行即可，安装完成后会继续引导你进入注册 / 授权流程。</p>
             </div>
             
             <div class="step" data-step="第三步">
-                <h4>在浏览器中完成授权</h4>
-                <p>浏览器会自动打开元任务AI网关授权页面，点击"立即授权"按钮完成授权。</p>
-                <p><img src="metacode-安装授权页面.png" alt="安装授权页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <div class="step" data-step="第四步">
-                <h4>返回终端查看授权结果</h4>
-                <p>授权成功后，终端会显示"<i data-lucide="check" class="icon" style="color:var(--green)"></i> 授权成功"提示。</p>
-                <p><img src="metacode-认证完成.png" alt="认证完成" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
-            </div>
-            
-            <div class="step" data-step="验证">
                 <h4>验证安装成功</h4>
                 <pre><code>metacode --version</code></pre>
-                <p>看到版本号即表示安装成功！现在可以直接使用 <code>metacode</code> 命令。</p>
+                <p>看到版本号即表示安装成功，接下来进入下一节完成注册 / 授权。</p>
             </div>
             
             <div class="success-tip">
                 <div class="tip-title"><i data-lucide="check" class="icon" style="color:var(--green)"></i> 安装完成！</div>
-                授权成功后直接使用，无需任何额外配置
+                下一步只需要在下方三种方式里任选一种完成注册 / 授权
+            </div>
+        </section>
+        
+        <!-- 5. 注册 / 授权 -->
+        <section id="register" class="section">
+            <h2>5. 注册 / 授权（3种方式） <i data-lucide="star" class="icon" style="color:var(--amber)"></i>（新手必看）</h2>
+            
+            <div class="tip">
+                <div class="tip-title"><i data-lucide="rocket" class="icon"></i> 第二步：选择一种方式完成注册 / 授权</div>
+                <p>最新版 MetaCode 支持 3 种方式：推荐网页授权、API Key 授权、设备码授权。你只需要任选一种完成即可，无需全部操作。</p>
+            </div>
+
+            <h3 id="register-choice">5.1 先看三种方式怎么选</h3>
+
+            <div class="card">
+                <ul style="padding-left: 20px; margin: 0;">
+                    <li><strong>方式一：网页授权（推荐）</strong> —— 新手首选，跟着网页提示点几步即可完成。</li>
+                    <li><strong>方式二：API Key 授权</strong> —— 适合已有账号，或希望手动创建和管理 Key 的用户。</li>
+                    <li><strong>方式三：设备码授权</strong> —— 适合浏览器未自动拉起、远程机器、或更习惯按设备码完成登录的场景。</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="方式选择">
+                <h4>安装后会看到三种登录 / 授权入口</h4>
+                <p>按照终端或页面提示，选择最适合你的方式继续即可。</p>
+                <p><img src="20260609metacode安装-登录三种形式选择.jpeg" alt="MetaCode 安装后登录与授权方式选择" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+
+            <h3 id="register-web">5.2 方式一：按照 MetaCode 推荐的网页授权完成（推荐）</h3>
+
+            <div class="step" data-step="第一步">
+                <h4>选择推荐的网页授权方式</h4>
+                <p>安装完成后，优先选择 MetaCode 推荐的网页授权方式。这个方式最省心，适合绝大多数新用户。</p>
+                <p><img src="20260609metacode安装-登录三种形式选择.jpeg" alt="选择网页登录授权" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+
+            <div class="step" data-step="第二步">
+                <h4>浏览器打开授权页面后，按页面提示完成登录或注册</h4>
+                <p>浏览器会自动打开授权页面。如果你还没有账号，可以直接在这里注册；已有账号则直接登录并授权。</p>
+                <p><img src="metacode-安装授权页面.png" alt="MetaCode 网页授权页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+
+            <div class="step" data-step="第三步">
+                <h4>完成授权后返回终端确认结果</h4>
+                <p>网页确认后，终端会显示授权完成提示，说明账号已经和当前设备绑定成功。</p>
+                <p><img src="metacode-认证完成.png" alt="MetaCode 网页授权完成" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+
+            <h3 id="register-api">5.3 方式二：API Key 授权（沿用原文档流程）</h3>
+
+            <div id="api-key"></div>
+
+            <div class="card">
+                <p><strong>适用场景：</strong>你希望手动创建和管理 Key，或者团队内部已经在用 API Key 方式统一发放凭证。</p>
+            </div>
+
+            <div class="step" data-step="1.1">
+                <h4>打开 API Key 获取页面</h4>
+                <p>复制下面网址到浏览器打开：</p>
+                <div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <code style="font-size: 1rem;">https://napi.origintask.cn/keys/generatormckey</code>
+                    <br><br>
+                    <a href="https://napi.origintask.cn/keys/generatormckey" target="_blank" style="display: inline-block; background: #667eea; color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none;">👉 点击直接打开</a>
+                </div>
+                <p><img src="API配置-打开网页链接.png" alt="API Key 获取页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="1.2">
+                <h4>注册或登录账号</h4>
+                <p>如果没有账号，点击"注册"；如果已有账号，点击"登录"。</p>
+                <p><img src="API配置-注册页截图.png" alt="注册页面" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+                <p><img src="API配置-邮箱注册.png" alt="邮箱注册" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="1.3">
+                <h4>创建 API Key</h4>
+                <p>登录后，点击"创建"或"Generate"按钮。</p>
+                <p><img src="API配置-创建密钥.png" alt="创建密钥" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+                <p>填写 Key 名称（如"我的电脑"），选择类型和过期时间，然后点击创建。</p>
+                <p><img src="API配置-创建密钥-配置分组.png" alt="配置分组" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="1.4">
+                <h4>复制 API Key</h4>
+                <p>创建成功后，页面会显示一串密钥（以 <code>sk-</code> 开头）。复制保存好。</p>
+                <p><img src="API配置-key获取.png" alt="获取 Key" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+            
+            <div class="step" data-step="2.1">
+                <h4>配置到本地</h4>
+                <p>打开终端，运行下面命令：</p>
+                <pre><code>metacode config</code></pre>
+            </div>
+            
+            <div class="step" data-step="2.2">
+                <h4>粘贴 API Key</h4>
+                <p>终端提示输入时，粘贴刚才复制的 Key，按回车即可。</p>
+            </div>
+            
+            <div class="step" data-step="2.3">
+                <h4>验证配置成功</h4>
+                <pre><code>metacode exec --ephemeral --skip-git-repo-check "你好，请回复测试成功"</code></pre>
+                <p>如果 MetaCode 回复了"测试成功"，说明 API Key 授权正确。</p>
+            </div>
+
+            <h3 id="register-device">5.4 方式三：设备码授权</h3>
+
+            <div class="card">
+                <p><strong>适用场景：</strong>浏览器没有自动打开、你正在远程服务器上操作，或者你想手动在另一台设备上完成登录。</p>
+            </div>
+
+            <div class="step" data-step="第一步">
+                <h4>选择设备码授权方式</h4>
+                <p>在安装后的三种授权方式中，选择"设备码授权"继续。</p>
+            </div>
+
+            <div class="step" data-step="第二步">
+                <h4>按页面提示打开网页并输入设备码</h4>
+                <p>终端会给出设备码和访问地址。你只需要在浏览器中打开对应页面，输入设备码并确认授权。</p>
+                <p><img src="metacode-设备码授权网页操作.png" alt="设备码授权网页操作" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+
+            <div class="step" data-step="第三步">
+                <h4>回到终端确认授权完成</h4>
+                <p>网页确认后，终端会同步显示授权成功，你就可以开始正常使用 MetaCode。</p>
+                <p><img src="metacode-认证完成.png" alt="设备码授权完成" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+            </div>
+
+            <div class="success-tip">
+                <div class="tip-title"><i data-lucide="check" class="icon" style="color:var(--green)"></i> 注册 / 授权完成！</div>
+                无论你选择哪一种方式，只要完成一次，后续直接运行 <code>metacode</code> 即可使用。
             </div>
         </section>
         
@@ -1506,7 +1572,7 @@
         
         <!-- 页脚 -->
         <div class="footer">
-            <p>本文档最后更新于 2026年6月7日 | 版本：v6.7</p>
+            <p>本文档最后更新于 2026年6月9日 | 版本：v.1</p>
             <p>相关资源：<a href="https://metask.ai" target="_blank">官网</a> | <a href="https://docs.metask.ai" target="_blank">文档</a> | <a href="https://github.com/metask/metacode" target="_blank">GitHub</a></p>
         </div>
     </main>
