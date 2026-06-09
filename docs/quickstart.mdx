@@ -1,29 +1,17 @@
 ---
 title: "快速上手"
-description: "注册账号、安装 MetaCode、完成授权，几分钟即可开始使用。"
+description: "先安装 MetaCode，再从三种方式里任选一种完成注册 / 授权，几分钟即可开始使用。"
 ---
 
-只需三步即可开始：**注册 → 安装 → 授权**。授权成功后无需额外配置，直接使用。
+只需两步即可开始：**安装 → 选一种方式完成注册 / 授权**。授权成功后无需额外配置，直接使用。
 
-## 第一步：注册账号
+<Note>
+  最新版支持 **3 种授权方式**：网页授权（推荐）、API Key 授权、设备码授权。你只需任选一种完成即可，**不用全部都做**。
+</Note>
 
-MetaCode 通过「元任务 AI 网关」注册。
+## 第一步：安装 MetaCode
 
-<Steps>
-  <Step title="打开注册页面">
-    访问 [https://napi.origintask.cn/register](https://napi.origintask.cn/register)
-  </Step>
-  <Step title="用邮箱注册">
-    填写邮箱，完成邮箱验证。
-  </Step>
-  <Step title="设置密码">
-    设置登录密码，看到注册成功提示后即可进行安装。
-  </Step>
-</Steps>
-
-## 第二步：安装
-
-根据你的系统，选择对应的安装方式。
+安装方式不变，依旧是复制一行命令执行。安装完成后，会继续引导你进入注册 / 授权流程。
 
 <Tabs>
   <Tab title="Windows">
@@ -35,18 +23,13 @@ MetaCode 通过「元任务 AI 网关」注册。
         ```powershell
         irm https://napi.origintask.cn/install/metacode | iex
         ```
+        复制后直接运行即可，安装完成后会继续引导你进入注册 / 授权流程。
       </Step>
-      <Step title="完成授权">
-        浏览器会自动打开授权页面，点击「立即授权」。
-      </Step>
-      <Step title="回到终端确认">
-        返回终端，看到成功提示即代表授权完成。
-      </Step>
-      <Step title="验证安装">
+      <Step title="验证安装成功">
         ```powershell
         metacode --version
         ```
-        看到版本号即安装成功。
+        看到版本号即表示安装成功。
       </Step>
     </Steps>
   </Tab>
@@ -59,25 +42,142 @@ MetaCode 通过「元任务 AI 网关」注册。
         ```bash
         curl -fsSL https://napi.origintask.cn/install/metacode | sh
         ```
+        复制后直接运行即可，安装完成后会继续引导你进入注册 / 授权流程。
       </Step>
-      <Step title="完成授权">
-        浏览器会自动打开授权页面，点击「立即授权」。
-      </Step>
-      <Step title="回到终端确认">
-        返回终端，看到成功提示即代表授权完成。
-      </Step>
-      <Step title="验证安装">
+      <Step title="验证安装成功">
         ```bash
         metacode --version
         ```
-        看到版本号即安装成功。
+        看到版本号即表示安装成功。
       </Step>
     </Steps>
   </Tab>
 </Tabs>
 
 <Check>
-  授权成功后，无需额外配置，可直接开始使用。
+  安装完成！下一步只需要在下面三种方式里**任选一种**完成注册 / 授权。
+</Check>
+
+## 第二步：注册 / 授权（三选一）
+
+### 先看三种方式怎么选
+
+<CardGroup cols={1}>
+  <Card title="方式一：网页授权（推荐）" icon="globe">
+    新手首选，跟着网页提示点几步即可完成。
+  </Card>
+  <Card title="方式二：API Key 授权" icon="key">
+    适合已有账号，或希望手动创建和管理 Key 的用户。
+  </Card>
+  <Card title="方式三：设备码授权" icon="laptop">
+    适合浏览器未自动拉起、远程机器，或更习惯按设备码完成登录的场景。
+  </Card>
+</CardGroup>
+
+安装后，按终端或页面提示，会看到三种登录 / 授权入口，选最适合你的方式继续即可：
+
+<Frame>
+  <img src="/images/auth-choice.jpeg" alt="MetaCode 安装后登录与授权方式选择" />
+</Frame>
+
+### 方式一：网页授权（推荐）
+
+<Steps>
+  <Step title="选择推荐的网页授权方式">
+    安装完成后，优先选择 MetaCode 推荐的网页授权方式，最省心，适合绝大多数新用户。
+  </Step>
+  <Step title="在浏览器里完成登录或注册">
+    浏览器会自动打开授权页面。还没有账号可以直接在这里注册；已有账号则直接登录并授权。
+    <Frame>
+      <img src="/images/web-auth-page.png" alt="MetaCode 网页授权页面" />
+    </Frame>
+  </Step>
+  <Step title="回到终端确认结果">
+    网页确认后，终端会显示授权完成提示，说明账号已经和当前设备绑定成功。
+    <Frame>
+      <img src="/images/auth-done.png" alt="MetaCode 授权完成提示" />
+    </Frame>
+  </Step>
+</Steps>
+
+### 方式二：API Key 授权
+
+<Card title="适用场景" icon="circle-info">
+  你希望手动创建和管理 Key，或者团队内部已经在用 API Key 方式统一发放凭证。
+</Card>
+
+<Steps>
+  <Step title="打开 API Key 获取页面">
+    复制下面网址到浏览器打开：[https://napi.origintask.cn/keys/generatormckey](https://napi.origintask.cn/keys/generatormckey)
+    <Frame>
+      <img src="/images/apikey-open.png" alt="API Key 获取页面" />
+    </Frame>
+  </Step>
+  <Step title="注册或登录账号">
+    没有账号点「注册」，已有账号点「登录」。
+    <Frame>
+      <img src="/images/apikey-register.png" alt="注册 / 登录页面" />
+    </Frame>
+    <Frame>
+      <img src="/images/apikey-email.png" alt="邮箱注册" />
+    </Frame>
+  </Step>
+  <Step title="创建 API Key">
+    登录后点「创建 / Generate」，填写 Key 名称（如「我的电脑」），选择类型和过期时间，然后创建。
+    <Frame>
+      <img src="/images/apikey-create.png" alt="创建密钥" />
+    </Frame>
+    <Frame>
+      <img src="/images/apikey-group.png" alt="配置分组" />
+    </Frame>
+  </Step>
+  <Step title="复制 API Key">
+    创建成功后，页面会显示一串以 `sk-` 开头的密钥，复制保存好。
+    <Frame>
+      <img src="/images/apikey-get.png" alt="获取 Key" />
+    </Frame>
+  </Step>
+  <Step title="配置到本地">
+    打开终端，运行：
+    ```bash
+    metacode config
+    ```
+    终端提示输入时，粘贴刚才复制的 Key，按回车。
+  </Step>
+  <Step title="验证配置成功">
+    ```bash
+    metacode exec --ephemeral --skip-git-repo-check "你好，请回复测试成功"
+    ```
+    如果 MetaCode 回复了「测试成功」，说明 API Key 授权正确。
+  </Step>
+</Steps>
+
+### 方式三：设备码授权
+
+<Card title="适用场景" icon="circle-info">
+  浏览器没有自动打开、你正在远程服务器上操作，或者想手动在另一台设备上完成登录。
+</Card>
+
+<Steps>
+  <Step title="选择设备码授权方式">
+    在安装后的三种授权方式中，选择「设备码授权」继续。
+  </Step>
+  <Step title="按页面提示打开网页并输入设备码">
+    终端会给出设备码和访问地址。在浏览器中打开对应页面，输入设备码并确认授权。
+    <Frame>
+      <img src="/images/device-code.png" alt="设备码授权网页操作" />
+    </Frame>
+  </Step>
+  <Step title="回到终端确认授权完成">
+    网页确认后，终端会同步显示授权成功，你就可以开始正常使用 MetaCode。
+    <Frame>
+      <img src="/images/auth-done.png" alt="授权完成提示" />
+    </Frame>
+  </Step>
+</Steps>
+
+<Check>
+  注册 / 授权完成！无论你选哪一种方式，只要完成一次，后续直接运行 `metacode` 即可使用。
 </Check>
 
 ## 版本升级
